@@ -3,7 +3,7 @@ markdown:         kramdown
 highlighter:      rouge
 
 # Setup
-title:            real-time graphics lab
+title:            RTGraphics
 tagline:          'A Jekyll theme'
 description:      'HUFS'
 url:              https://God-eunger.github.io

@@ -1,5 +1,5 @@
 <div id="sidebar">
-  <img src="/images/logo.png" alt="logo">
+  <!-- <img src="/images/logo.png" alt="logo"> -->
   <header>
     <{% if page.layout == "index" %}h1{% else %}div{% endif %} class="site-title">
       {% if page.url contains 'english' %}
@@ -25,6 +25,7 @@
     {% include sidebar-icon-links.html %}
   {% endif %}
 
+  <!--
   <div style="float: right">
     <a class="{% unless page.url contains 'english' %} active{% endunless %}"
         href="{{"/" | relative_url}}">Korean</a>
@@ -32,6 +33,7 @@
     <a class="{% if page.url contains 'english' %} active{% endif %}"
         href="{{"/english" | relative_url}}">English</a>
   </div>
+  -->
   <br>
 </div>
 
