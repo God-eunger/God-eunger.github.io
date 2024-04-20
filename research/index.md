@@ -6,8 +6,8 @@ title: Research
 ### Real-time Computer Graphics for Game and Entertainment
 <br>
 <div class="row">
-    <iframe width="400" height="280" src="https://www.youtube.com/embed/KO75vKLfJVU?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="margin-right: 2rem"></iframe>
-    <iframe width="400" height="280" src="https://www.youtube.com/embed/4UWKqwnEQkk?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe width="400" height="280" src="https://www.youtube.com/embed/KO75vKLfJVU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="margin-right: 2rem"></iframe>
+    <iframe width="400" height="280" src="https://www.youtube.com/embed/4UWKqwnEQkk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
 
 #### 물리 기반 애니메이션 및 시각화
@@ -15,8 +15,8 @@ title: Research
 
 <br>
 <div class="row">
-    <iframe width="400" height="280" src="https://www.youtube.com/embed/LLrulR9aK68?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="margin-right: 2rem"></iframe>
-    <iframe width="400" height="280" src="https://www.youtube.com/embed/CEkVu0DV_yg?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe width="400" height="280" src="https://www.youtube.com/embed/LLrulR9aK68" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="margin-right: 2rem"></iframe>
+    <iframe width="400" height="280" src="https://www.youtube.com/watch?CEkVu0DV_yg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
 
 #### 실시간 렌더링
