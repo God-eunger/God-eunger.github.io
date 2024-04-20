@@ -5,7 +5,7 @@ highlighter:      rouge
 # Setup
 title:            Real-time Graphics lab
 tagline:          'A Jekyll theme'
-description:      'HUFS'
+description:      '@ HUFS'
 url:              https://God-eunger.github.io
 baseurl:          '/'
                   # the optional subpath of your site, e.g. "/blog"
