@@ -12,5 +12,8 @@ Always check singular or plural according to the number of people
 -->
 
 ### Professor
-* 김승욱 (seungwook.kim<sub><i>at </i></sub>hufs<sub><i>dot </i></sub>ac<sub><i>dot </i></sub>kr)
+* 김승욱 (seungwook.kim<sub><i>at </i></sub>hufs<sub><i>dot </i></sub>ac<sub><i>dot </i></sub>kr) <br>
+<img src="swk.png" width="200px">
+
+
 
