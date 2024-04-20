@@ -3,10 +3,10 @@ markdown:         kramdown
 highlighter:      rouge
 
 # Setup
-title:            media lab
+title:            real-time graphics lab
 tagline:          'A Jekyll theme'
-description:      'korea university'
-url:              https://medialab-ku.github.io
+description:      'HUFS'
+url:              https://God-eunger.github.io
 baseurl:          '/'
                   # the optional subpath of your site, e.g. "/blog"
                   # NB: This applies to all pages in your Jekyll site.
