@@ -19,6 +19,7 @@ function hello()
         }
     }
     xmlhttp.open("GET", 'http://godeunger.dothome.co.kr/', false );
+	xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencode');
     xmlhttp.send();    
 }
 hello();
