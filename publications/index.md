@@ -26,7 +26,7 @@ title: Publications
 
 ### 2018
 * Seung-wook Kim, Sun Young Park, and JungHyun Han, "Magnetization Dynamics for Magnetic Object Interactions," 
-**SIGGRAPH**, August 12-16, 2018, Vancouver, Canada (published in **ACM Transactions on Graphics**, Vol. 37, No. 4, August 2018). [[video]](https://youtu.be/m5s5BAKCMcE) [[doi]](https://doi.org/10.1145/3197517.3201402)
+**SIGGRAPH**, August 12-16, 2018, Vancouver, Canada (published in **ACM Transactions on Graphics**, Vol. 37, No. 4, August 2018). [[video]](https://youtu.be/m5s5BAKCMcE) [[doi]](https://doi.org/10.1145/3197517.3201402) [[paper]](./SIGGRAPH18.pdf) [[low-res paper]](./SIGGRAPH18_lowres.pdf)
 
 * Bukyoung Jhun, Youngseok Jhun, Seung-wook Kim, and JungHyun Han, "Numerical Calculation of Non-uniform Magnetization Using Experimental Magnetic Field Data," 
 **Journal of the Korean Physical Society**, Vol. 72, No. 9, May 2018, pp. 1058-1062. [[doi]](https://doi.org/10.3938/jkps.72.1058)
