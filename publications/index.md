@@ -12,14 +12,14 @@ title: Publications
 * JaeHyun Lee, Seung-wook Kim, Kiwon Um, Min Hyung Kee, and JungHyun Han, “Inversion Alleviation for Stable Elastic Body Simulation,” **Computer Animation and Social Agents (CASA)**, May 29-31, 2023, Limassol, Cyprus (published in **Computer Animation and Virtual Worlds**, Vol. 34, No. 3-4, May 2023, pp. e2183). [[video]](https://youtu.be/4UWKqwnEQkk) [[doi]](https://doi.org/10.1002/cav.2183)
 
 ### 2022
-* Seung-wook Kim and JungHyun Han, “Fast Stabilization of Inducible Magnet Simulation,” **SIGGRAPH ASIA**, December 6-9, 2022. [[video]](https://youtu.be/KO75vKLfJVU) [[doi]](https://doi.org/10.1145/3550469.3555410)
+* Seung-wook Kim and JungHyun Han, “Fast Stabilization of Inducible Magnet Simulation,” **SIGGRAPH ASIA**, December 6-9, 2022. [[video]](https://youtu.be/KO75vKLfJVU) [[doi]](https://doi.org/10.1145/3550469.3555410) [[paper]](./SIGGRAPHASIA22.pdf) [[low-res paper]](./SIGGRAPHASIA22_lowres.pdf)
 
 * Joohwan Chae, Donghan Kim, Wooseok Jeong, Eunchan Jo, Won-Ki Jeong, JunYoung Choi, Seung-wook Kim, Myoung Gon Kim, Jae-Won Lee, Hyechan Lee, and JungHyun Han, "Virtual Air Conditioner’s Airflow Simulation and Visualization in AR," **ACM VRST**, November 29-December 1, 2022, Tsukuba, Japan. [[video]](https://youtu.be/CEkVu0DV_yg) [[doi]](https://doi.org/10.1145/3562939.3565615)
 
-* Seung-wook Kim, Jaehyung Doh, and JungHyun Han, “Modeling and Rendering Non-Euclidean Spaces approximated with Concatenated Polytopes,” **SIGGRAPH**, August 8-11, 2022 (published in **ACM Transactions on Graphics**, Vol. 41, No. 4, August 2022). [[teaser]](https://youtu.be/LLrulR9aK68) [[doi]](https://dl.acm.org/doi/10.1145/3528223.3530186)
+* Seung-wook Kim, Jaehyung Doh, and JungHyun Han, “Modeling and Rendering Non-Euclidean Spaces approximated with Concatenated Polytopes,” **SIGGRAPH**, August 8-11, 2022 (published in **ACM Transactions on Graphics**, Vol. 41, No. 4, August 2022). [[teaser]](https://youtu.be/LLrulR9aK68) [[doi]](https://dl.acm.org/doi/10.1145/3528223.3530186) [[paper]](./SIGGRAPH22.pdf) [[low-res paper]](./SIGGRAPH22_lowres.pdf)
 
 ### 2020
-* Seung-wook Kim and JungHyun Han, "Simulation of Arbitrarily-shaped Magnetic Objects," **Pacific Graphics** (published in **Computer Graphics Forum**, Vol. 39, No. 7, October 2020, pp. 119-130). [[video]](https://youtu.be/rj2J9VqEuxM) [[doi]](https://doi.org/10.1111/cgf.14131)
+* Seung-wook Kim and JungHyun Han, "Simulation of Arbitrarily-shaped Magnetic Objects," **Pacific Graphics** (published in **Computer Graphics Forum**, Vol. 39, No. 7, October 2020, pp. 119-130). [[video]](https://youtu.be/rj2J9VqEuxM) [[doi]](https://doi.org/10.1111/cgf.14131) [[paper]](./PG20.pdf) [[low-res paper]](./PG20_lowres.pdf)
 
 * SungIk Cho, Seung-wook Kim, JongMin Lee, JeongHyeon Ahn and JungHyun Han, "Effects of Volumetric Capture Avatars on Social Presence in Immersive Virtual Environments," 
 **IEEE VR**, March 22-26, 2020, Atlanta, Georgia, USA **(best conference paper nominated)**. [[video]](https://youtu.be/qqZ25gfIj5c) [[doi]](https://doi.org/10.1109/VR46266.2020.00020)
