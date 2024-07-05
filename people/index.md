@@ -13,7 +13,7 @@ Always check singular or plural according to the number of people
 
 ### Professor
 
-![Professor](swk.png){: style="float: left; height: 300px; padding: 30px 50px 10px 0;"}
+![Professor](swk.png){: style="float: left; height: 250px; padding: 30px 50px 10px 0;"}
 #### Seung-wook Kim (seungwook.kim<sub><i>at </i></sub>hufs<sub><i>dot </i></sub>ac<sub><i>dot </i></sub>kr) 
  * Assistatnt Professor, Division of Computer Engineering at HUFS
  * Postdoctoral Researcher, Korea University, Mar. 2021 ~ Feb. 2024
