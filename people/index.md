@@ -20,6 +20,9 @@ Always check singular or plural according to the number of people
  * Ph.D. Eng. in Computer Science and Engineering, Korea University, Feb. 2021
  * BS, Eng. in Computer Science and Engineering, Korea University, Feb. 2016
 
+\
+\
+
 ### Undergraduates
 
 #### Jung Kyungseo (junggs1245<sub><i>at </i></sub>gmail<sub><i>dot </i></sub>com) 
