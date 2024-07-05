@@ -21,7 +21,6 @@ Always check singular or plural according to the number of people
  * BS, Eng. in Computer Science and Engineering, Korea University, Feb. 2016
 
 \
-\
 
 ### Undergraduates
 
