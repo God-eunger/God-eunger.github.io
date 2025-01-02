@@ -3,79 +3,18 @@ layout: post
 title: Physics
 ---
 
+# 1. Stable Fluids 개요
 
-# Part 1: Introduction and Mathematical Foundations
+Stable Fluids는 1999년 Jos Stam에 출판된 논문이며 저명한 컴퓨터 그래픽스 학회인 SIGGRAPH에서 발표된 실시간 유체 시뮬레이션 기법을 다루고 있습니다. 전통적으로 유체 시뮬레이션은 복잡한 수치해석 방정식을 풀어야 하며, 매우 세밀한 시간 간격과 공간 격자를 사용해야만 안정적이고 정확한 결과를 얻을 수 있었습니다. 하지만 이렇게 정확도를 높이려다 보면 계산 비용이 급격하게 증가하여 실시간 시뮬레이션이 사실상 불가능해지는 문제가 있었습니다.
 
-## 1. Physics Simulations in Computer Graphics
+Jos Stam은 이러한 문제를 해결하기 위해 Semi-Lagrangian 기법과 projection(압력 보정) 방식을 조합함으로써 time step이 커져도(상대적으로 적은 계산량으로도) 시뮬레이션이 폭발(explode)하지 않고 안정적으로 진행될 수 있는 알고리즘을 고안했습니다. 이 알고리즘은 물리적으로 정확한 결과를 제공하지는 않지만, 시각적으로 만족도가 높고 연산량 대비 매우 안정적이라는 장점 덕분에 컴퓨터 그래픽스 분야에서 널리 쓰이게 되었습니다.
 
-물리 시뮬레이션은 컴퓨터 그래픽스에서 매우 중요한 역할을 합니다. 게임이나 영화에서 현실적인 움직임을 표현하기 위해 물리 시뮬레이션이 필수적으로 사용됩니다.
+* 안정성(Stable): 시간 스텝을 크게 해도 수치 오차로 인해 발산하는 문제를 억제합니다.
+* 간단한 구현(Simple Implementation): 서로 다른 수치 알고리즘을 단계별(Advection → Diffusion → Projection)로 나누어 처리하므로, 코드 구조가 비교적 간단합니다.
+* 실시간성(Real-time): GPU 가속 및 병렬 처리를 통해 낮은 해상도에서 실시간에 가까운 시뮬레이션이 가능합니다.
 
-### 물리 시뮬레이션의 주요 응용 분야
-1. **Games (게임)**: 캐릭터의 움직임이나 물체 간의 상호작용을 사실적으로 표현합니다.
-2. **Films (영화)**: CG로 구현된 물체나 자연현상을 현실감 있게 표현하는 데 사용됩니다.
-3. **Virtual Reality (가상 현실)**: 사용자와 환경 간의 상호작용을 자연스럽게 만듭니다.
+Stable Fluids는 게임 엔진, 그래픽스 소프트웨어, 교육용 시뮬레이션 툴 등에서 연기(Smoke), 물의 흐름(Water Flow) 등의 시각적 효과를 구현하는 데 널리 활용됩니다. 
+Stable Fluids 이후, 많은 연구자들이 Semi-Lagrangian 방식이나 압력 보정(Projection) 기법을 더욱 정교화함으로써, 물리적으로 더욱 정확하고 다양한 종류(Multi-phase)의 유체나 열전달(Thermal Transfer) 등이 포함된 고도화된 시뮬레이션으로 발전시켰습니다. Jos Stam의 연구는 이러한 후속 연구의 **초석(Foundation)**이 되었다는 점에서 여전히 큰 의의를 지니고 있습니다.
 
-물리 기반 모델링의 목표는 현실 세계의 물리적 특성을 가상 환경에서 정밀하게 재현하는 것입니다.
+앞으로 이어지는 섹션에서는 Stable Fluids 알고리즘의 세부 과정을 단계별로 살펴보고, 이를 구현하기 위한 이론적 배경 및 예제 코드를 살펴볼 예정입니다. 다음 장에서는 유체 역학의 기본 방정식과 수치해석 기법에 대해 간단히 정리해 보겠습니다.
 
-## 2. Mathematics for Physics Simulation
-
-물리 시뮬레이션을 이해하려면 먼저 수학적 기초를 잘 이해해야 합니다. 물리 시뮬레이션에서는 주로 **Vectors (벡터)**, **Matrices (행렬)**, 그리고 **Differential Equations (미분 방정식)**이 자주 사용됩니다.
-
-### Vectors and Matrices (벡터와 행렬)
-벡터는 공간에서의 위치나 방향을 나타내는 데 사용됩니다. 행렬은 벡터를 변환하는 수단으로, 회전, 이동, 크기 조정 등의 작업에 사용됩니다.
-
-- 벡터는 일반적으로 다음과 같이 표기됩니다:
-  \[
-  \vec{v} = [v_x, v_y, v_z]
-  \]
-  
-- 행렬은 벡터에 변형을 가할 수 있습니다. 예를 들어, 2D 회전 행렬은 다음과 같습니다:
-  \[
-  R(\theta) = 
-  \begin{bmatrix}
-  \cos(\theta) & -\sin(\theta) \\
-  \sin(\theta) & \cos(\theta)
-  \end{bmatrix}
-  \]
-
-### Differential Equations (미분 방정식)
-물리 시뮬레이션에서 **미분 방정식 (Differential Equations)**은 물체의 속도나 가속도를 계산하는 데 사용됩니다. 뉴턴의 운동 법칙 \(F = ma\)를 미분 방정식으로 표현할 수 있습니다.
-
-#### 예시:
-만약 물체의 위치가 시간에 따라 변한다고 가정하면, 그 물체의 속도는 위치의 시간에 대한 1차 미분으로 표현됩니다:
-\[
-v(t) = \frac{dx(t)}{dt}
-\]
-
-가속도는 속도의 시간에 대한 1차 미분, 혹은 위치의 시간에 대한 2차 미분으로 표현됩니다:
-\[
-a(t) = \frac{dv(t)}{dt} = \frac{d^2x(t)}{dt^2}
-\]
-
-### Linear Algebra (선형대수)
-선형대수는 물리 시뮬레이션에서 매우 중요한 역할을 합니다. **행렬 (Matrix)**와 **벡터 (Vector)**는 물체의 움직임과 변형을 표현하는 데 사용되며, 시뮬레이션 환경에서 여러 물체의 상호작용을 계산하는 데 사용됩니다.
-
-## 3. Coordinate Systems and Transformations
-
-시뮬레이션에서 물체는 **Global Coordinate System (글로벌 좌표계)**와 **Local Coordinate System (로컬 좌표계)**에서 표현됩니다. 글로벌 좌표계는 전체 시뮬레이션 환경을 나타내며, 로컬 좌표계는 특정 물체의 위치와 방향을 나타냅니다.
-
-### Global vs. Local Coordinate Systems (글로벌 vs. 로컬 좌표계)
-- **Global Coordinate System (글로벌 좌표계)**: 시뮬레이션 환경 전체를 기준으로 한 좌표계입니다. 모든 물체는 이 좌표계를 기준으로 위치가 결정됩니다.
-- **Local Coordinate System (로컬 좌표계)**: 각 물체에 대한 고유한 좌표계로, 물체의 위치와 방향이 이 좌표계를 기준으로 표현됩니다.
-
-### Rotation Matrices (회전 행렬)
-물체의 회전은 주로 **Rotation Matrix (회전 행렬)**로 표현됩니다. 3D 공간에서의 회전은 **Quaternions (쿼터니언)**으로도 표현할 수 있습니다.
-
-#### 예시:
-만약 물체가 \(\theta\)만큼 회전한다고 하면, 그 물체의 회전 행렬은 다음과 같이 정의됩니다:
-\[
-R(\theta) =
-\begin{bmatrix}
-\cos(\theta) & -\sin(\theta) \\
-\sin(\theta) & \cos(\theta)
-\end{bmatrix}
-\]
-
-이 회전 행렬은 물체의 위치 벡터에 곱해져, 회전 후의 새로운 위치를 계산할 수 있습니다.
-
----
