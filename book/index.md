@@ -34,11 +34,7 @@ Stable Fluids 이후, 많은 연구자들이 Semi-Lagrangian 방식이나 압력
 불압축성(Incompressible) 유체를 가정하면, 유체의 밀도(\(\rho\))를 상수로 둘 수 있습니다. 이때, 2D 또는 3D 공간에서의 Navier-Stokes 식은 다음과 같은 형태로 나타낼 수 있습니다.
 
 \\[
-\frac{\partial \mathbf{v}}{\partial t} 
-+ (\mathbf{v} \cdot \nabla)\mathbf{v} 
-= -\frac{1}{\rho}\nabla p 
-+ \nu \nabla^2 \mathbf{v} 
-+ \mathbf{f},
+\frac{\partial \mathbf{v}}{\partial t} + (\mathbf{v} \cdot \nabla)\mathbf{v} = -\frac{1}{\rho}\nabla p + \nu \nabla^2 \mathbf{v} + \mathbf{f},
 \\]
 
 - \\(\mathbf{v}\\): 속도장(velocity field)  
@@ -82,4 +78,29 @@ Stable Fluids 이후, 많은 연구자들이 Semi-Lagrangian 방식이나 압력
 - **Advection(이류)와 Diffusion(확산)** 단계에서 \\((\mathbf{v} \cdot \nabla)\mathbf{v}\\) 항과 \\(\nu \nabla^2 \mathbf{v}\\) 항을 각각 분리하여 처리함으로써, Navier-Stokes 식을 수치적으로 풀기 쉽게 만들어줍니다.  
 - **Projection(압력 보정)** 단계에서 \\(\nabla \cdot \mathbf{v} = 0\\) 조건을 만족시켜, 결과적으로 물이 부풀어 오르거나 갑자기 압축되는 등의 비물리적 현상이 발생하지 않도록 합니다.
 
-앞으로 이어지는 섹션에서는 Navier-Stokes 식을 어떻게 **수치해석(Numerical Methods)** 기법으로 풀어나가고, 어떻게 단계를 분리하여 구현하는지 살펴볼 예정입니다.
+
+## 2-2. 연속 방정식(Conservation Equations)
+
+유체 역학에서 가장 중요한 보존 법칙(Conservation Laws)은 크게 **질량 보존(Continuity)**, **운동량 보존(Momentum Conservation)**, **에너지 보존(Energy Conservation)** 등을 포함합니다. 이 중, **Stable Fluids** 알고리즘에서는 불압축성(Incompressible) 유체를 가정하므로, **질량 보존**을 핵심적으로 다룹니다.
+
+---
+
+### 질량 보존(Continuity Equation)
+
+불압축성 유체에서는 밀도(\(\rho\))가 시간이나 공간에 따라 변하지 않는다고 가정합니다. 따라서 다음과 같은 **연속 방정식**(Continuity Equation)이 성립합니다.
+
+\\[
+\nabla \cdot \mathbf{v} = 0
+\\]
+
+이는 유체가 흐르는 동안 질량(또는 부피)이 증감하지 않는 상태를 의미합니다. 다시 말해, "어떤 지점에서 유체가 들어온 만큼 동일하게 빠져나간다"는 개념입니다.
+
+- \\(\mathbf{v}\\): 속도장(velocity field)  
+- \\(\nabla \cdot \mathbf{v}\\): 발산(divergence), 3차원에서는 \\(\frac{\partial v_x}{\partial x} + \frac{\partial v_y}{\partial y} + \frac{\partial v_z}{\partial z}\\) 형태로 계산됩니다.
+
+---
+
+### 운동량 보존(Momentum Conservation)
+
+앞선 **2-1**에서 살펴본 **Navier-Stokes 식**이 곧 운동량 보존 법칙을 유체에 적용한 형태입니다. 유체의 운동 상태는 외력(\\(\mathbf{f}\\)), 압력 기울기(\\(\nabla p\\)), 점성(\\(\nu \nabla^2 \mathbf{v}\\)) 등 다양한 요인에 의해 결정됩니다.
+
