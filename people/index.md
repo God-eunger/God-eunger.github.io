@@ -13,7 +13,6 @@ Always check singular or plural according to the number of people
 
 ### Professor
 
-![Professor](swk.png){: style="float: left; height: 250px; padding: 20px 50px 10px 0;"}
 #### Seung-wook Kim (seungwook.kim<sub><i>at </i></sub>hufs<sub><i>dot </i></sub>ac<sub><i>dot </i></sub>kr) 
  * Assistatnt Professor, Division of Computer Engineering at HUFS
  * Postdoctoral Researcher, Korea University, Mar. 2021 ~ Feb. 2024
@@ -22,6 +21,12 @@ Always check singular or plural according to the number of people
 
 ### Undergraduates
 
+ * Ji Sanghyeon (hmusk7@gmail.com) 
+ * Yang Byeongwoo (quddn2785@gmail.com) 
+ * Park Seungbeom (psb0831@naver.com)
+
+### Former Undergraduates
+ 
  * Jung Kyungseo (junggs1245<sub><i>at </i></sub>gmail<sub><i>dot </i></sub>com) 
 
 
