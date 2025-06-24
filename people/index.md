@@ -21,9 +21,9 @@ Always check singular or plural according to the number of people
 
 ### Undergraduates
 
- * Ji Sanghyeon (hmusk7@gmail.com) 
- * Yang Byeongwoo (quddn2785@gmail.com) 
- * Park Seungbeom (psb0831@naver.com)
+ * Ji Sanghyeon (hmusk7<sub><i>at </i></sub>gmail<sub><i>dot </i></sub>com) 
+ * Yang Byeongwoo (quddn2785<sub><i>at </i></sub>gmail<sub><i>dot </i></sub>com) 
+ * Park Seungbeom (psb0831<sub><i>at </i></sub>naver<sub><i>dot </i></sub>com)
 
 ### Former Undergraduates
  
