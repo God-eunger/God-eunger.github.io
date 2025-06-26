@@ -21,6 +21,7 @@ Always check singular or plural according to the number of people
 
 ### Undergraduates
 
+ * Kim Jun Seok (202100999<sub><i>at </i></sub>hufs<sub><i>dot </i></sub>ac<sub><i>dot </i></sub>kr) 
  * Ji Sanghyeon (hmusk7<sub><i>at </i></sub>gmail<sub><i>dot </i></sub>com) 
  * Yang Byeongwoo (quddn2785<sub><i>at </i></sub>gmail<sub><i>dot </i></sub>com) 
  * Park Seungbeom (psb0831<sub><i>at </i></sub>naver<sub><i>dot </i></sub>com)
