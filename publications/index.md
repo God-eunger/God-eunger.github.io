@@ -3,6 +3,9 @@ layout: post
 title: Publications
 ---
 
+### 2025
+* Seung-wook Kim, HuiSeong Lee, JaeHyun Lee, Kiwon Um and JungHyun Han, “Dimension Expansion for Untangling Mass-spring System,” **Computer Animation and Virtual Worlds**, Vol. 36, No. 6. (to be published)
+
 ### 2024
 * Heejo Jeong, Seung-wook Kim, JaeHyun Lee, Kiwon Um, Min Hyung Kee, and JungHyun Han, “Momentum-preserving inversion alleviation for elastic material simulation,” **Computer Animation and Social Agents (CASA)**, June 5-7, 2024, Wuhan, China (published in **Computer Animation and Virtual Worlds**, Vol. 35, No. 3, May 2024, pp. e2249). [[video]](https://www.youtube.com/watch?v=xvWl_QX5cf0) [[doi]](https://doi.org/10.1002/cav.2249)
 
