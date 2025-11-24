@@ -22,7 +22,7 @@ Always check singular or plural according to the number of people
 ### Undergraduates
 
  * Kim Jun Seok (202100999<sub><i>at </i></sub>hufs<sub><i>dot </i></sub>ac<sub><i>dot </i></sub>kr) 
- * Ji Sanghyun (hmusk7<sub><i>at </i></sub>gmail<sub><i>dot </i></sub>com) 
+ * Ji Sanghyun (shrnd3v<sub><i>at </i></sub>gmail<sub><i>dot </i></sub>com) 
 
 ### Former Undergraduates
  
