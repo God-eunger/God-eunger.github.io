@@ -3,6 +3,9 @@ layout: post
 title: Publications
 ---
 
+### 2026
+ * Jaehyuk Lim, Donggyu Lee, Junghyun Han, and Seung-wook Kim, “Parameter-preserving Real-time BIM Rendering via Direct GPU Ray Tracing,” Computer Animation and Social Agents (CASA), June 1-3, 2026, Geneva, Switzerland (to appear in **Computer Animation and Virtual Worlds**).
+
 ### 2025
 * Seung-wook Kim, HuiSeong Lee, JaeHyun Lee, Kiwon Um and JungHyun Han, “Dimension Expansion for Untangling Mass-spring System,” **Computer Animation and Virtual Worlds**, Vol. 36, No. 6, November 2025, pp. e70079. [[doi]](https://doi.org/10.1002/cav.70079)
 
