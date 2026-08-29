@@ -25,10 +25,6 @@ struct Params {
 @group(0) @binding(3) var<storage, read_write> divergence: array<f32>;
 @group(0) @binding(4) var<storage, read> pressureInput: array<f32>;
 @group(0) @binding(5) var<storage, read_write> pressureOutput: array<f32>;
-@group(0) @binding(6) var<storage, read> originalState: array<vec4<f32>>;
-@group(0) @binding(7) var<storage, read> predictorState: array<vec4<f32>>;
-@group(0) @binding(8) var<storage, read> reverseState: array<vec4<f32>>;
-@group(0) @binding(9) var<storage, read_write> correctedState: array<vec4<f32>>;
 
 fn cellIndex(cell: vec2<u32>) -> u32 {
   return cell.x + cell.y * params.size.x;
@@ -61,29 +57,6 @@ fn boundaryState(cell: vec2<i32>) -> vec4<f32> {
   if (cell.y <= 0) { velocity = vec2<f32>(velocity.x, min(velocity.y, 0.0)); }
   if (cell.y >= height - 1) { velocity = vec2<f32>(velocity.x, max(velocity.y, 0.0)); }
   return vec4<f32>(velocity, innerState.z, 0.0);
-}
-
-fn originalBoundaryState(cell: vec2<i32>) -> vec4<f32> {
-  let width = i32(params.size.x);
-  let height = i32(params.size.y);
-  let innerCell = vec2<u32>(
-    u32(clamp(cell.x, 1, width - 2)),
-    u32(clamp(cell.y, 1, height - 2))
-  );
-  let innerState = originalState[cellIndex(innerCell)];
-  var velocity = innerState.xy;
-  if (cell.x <= 0) { velocity = vec2<f32>(min(velocity.x, 0.0), velocity.y); }
-  if (cell.x >= width - 1) { velocity = vec2<f32>(max(velocity.x, 0.0), velocity.y); }
-  if (cell.y <= 0) { velocity = vec2<f32>(velocity.x, min(velocity.y, 0.0)); }
-  if (cell.y >= height - 1) { velocity = vec2<f32>(velocity.x, max(velocity.y, 0.0)); }
-  return vec4<f32>(velocity, innerState.z, 0.0);
-}
-
-fn originalAt(cell: vec2<i32>) -> vec4<f32> {
-  if (!inBounds(cell)) { return originalBoundaryState(cell); }
-  let safeCell = vec2<u32>(cell);
-  if (isBoundary(safeCell)) { return originalBoundaryState(cell); }
-  return originalState[cellIndex(safeCell)];
 }
 
 fn stateAt(cell: vec2<i32>) -> vec4<f32> {
@@ -167,23 +140,8 @@ fn forces(@builtin(global_invocation_id) id: vec3<u32>) {
   outputState[offset] = vec4<f32>(velocity, density, 0.0);
 }
 
-fn advectedState(cell: vec2<u32>, direction: f32) -> vec4<f32> {
-  if (isBoundary(cell)) { return boundaryState(vec2<i32>(cell)); }
-
-  let offset = cellIndex(cell);
-  let uv = cellUv(cell);
-  let velocity = inputState[offset].xy;
-  return sampleState(uv - direction * params.dt * velocity);
-}
-
 @compute @workgroup_size(8, 8)
-fn advectForward(@builtin(global_invocation_id) id: vec3<u32>) {
-  if (any(id.xy >= params.size)) { return; }
-  outputState[cellIndex(id.xy)] = advectedState(id.xy, 1.0);
-}
-
-@compute @workgroup_size(8, 8)
-fn advectReverse(@builtin(global_invocation_id) id: vec3<u32>) {
+fn advect(@builtin(global_invocation_id) id: vec3<u32>) {
   let cell = id.xy;
   if (any(cell >= params.size)) { return; }
   let offset = cellIndex(cell);
@@ -191,47 +149,7 @@ fn advectReverse(@builtin(global_invocation_id) id: vec3<u32>) {
     outputState[offset] = boundaryState(vec2<i32>(cell));
     return;
   }
-  outputState[offset] = sampleState(cellUv(cell) + params.dt * originalState[offset].xy);
-}
-
-@compute @workgroup_size(8, 8)
-fn correctMacCormack(@builtin(global_invocation_id) id: vec3<u32>) {
-  let cell = id.xy;
-  if (any(cell >= params.size)) { return; }
-  let offset = cellIndex(cell);
-
-  if (isBoundary(cell)) {
-    correctedState[offset] = originalBoundaryState(vec2<i32>(cell));
-    return;
-  }
-
-  let original = originalState[offset];
-  let predictor = predictorState[offset];
-  let reversed = reverseState[offset];
-  let departure = cellUv(cell) - params.dt * original.xy;
-  let gridPosition = departure * vec2<f32>(params.size) - vec2<f32>(0.5);
-  let low = vec2<i32>(floor(gridPosition));
-  let high = low + vec2<i32>(1);
-  let cell00 = vec2<i32>(low.x, low.y);
-  let cell10 = vec2<i32>(high.x, low.y);
-  let cell01 = vec2<i32>(low.x, high.y);
-  let cell11 = vec2<i32>(high.x, high.y);
-  if (
-    !inBounds(cell00) || !inBounds(cell10) || !inBounds(cell01) || !inBounds(cell11) ||
-    isBoundary(vec2<u32>(cell00)) || isBoundary(vec2<u32>(cell10)) ||
-    isBoundary(vec2<u32>(cell01)) || isBoundary(vec2<u32>(cell11))
-  ) {
-    correctedState[offset] = predictor;
-    return;
-  }
-  let sample00 = originalAt(cell00);
-  let sample10 = originalAt(cell10);
-  let sample01 = originalAt(cell01);
-  let sample11 = originalAt(cell11);
-  let minimumState = min(min(sample00, sample10), min(sample01, sample11));
-  let maximumState = max(max(sample00, sample10), max(sample01, sample11));
-  let corrected = predictor + 0.5 * (original - reversed);
-  correctedState[offset] = clamp(corrected, minimumState, maximumState);
+  outputState[offset] = sampleState(cellUv(cell) - params.dt * inputState[offset].xy);
 }
 
 @compute @workgroup_size(8, 8)
@@ -435,21 +353,14 @@ fn fragmentMain(input: VertexOutput) -> @location(0) vec4<f32> {
       divergenceBuffer.destroy();
     }
 
-    stateBuffers = [
-      createBuffer(stateSize, storageUsage),
-      createBuffer(stateSize, storageUsage),
-      createBuffer(stateSize, storageUsage),
-      createBuffer(stateSize, storageUsage)
-    ];
+    stateBuffers = [createBuffer(stateSize, storageUsage), createBuffer(stateSize, storageUsage)];
     pressureBuffers = [createBuffer(scalarSize, storageUsage), createBuffer(scalarSize, storageUsage)];
     divergenceBuffer = createBuffer(scalarSize, storageUsage);
     currentState = 0;
 
     bindGroups = {
       forces: [],
-      advectForward: [],
-      advectReverse: [],
-      correct: [],
+      advect: [],
       divergence: [],
       pressure: [],
       gradient: [[], []],
@@ -460,19 +371,7 @@ fn fragmentMain(input: VertexOutput) -> @location(0) vec4<f32> {
       var otherState = 1 - stateIndex;
       var stateEntries = [[0, uniformBuffer], [1, stateBuffers[stateIndex]], [2, stateBuffers[otherState]]];
       bindGroups.forces[stateIndex] = createComputeBindGroup(pipelines.forces, stateEntries);
-      bindGroups.advectForward[stateIndex] = createComputeBindGroup(pipelines.advectForward, [
-        [0, uniformBuffer], [1, stateBuffers[stateIndex]], [2, stateBuffers[2]]
-      ]);
-      bindGroups.advectReverse[stateIndex] = createComputeBindGroup(pipelines.advectReverse, [
-        [0, uniformBuffer], [1, stateBuffers[2]], [2, stateBuffers[3]], [6, stateBuffers[stateIndex]]
-      ]);
-      bindGroups.correct[stateIndex] = createComputeBindGroup(pipelines.correct, [
-        [0, uniformBuffer],
-        [6, stateBuffers[stateIndex]],
-        [7, stateBuffers[2]],
-        [8, stateBuffers[3]],
-        [9, stateBuffers[otherState]]
-      ]);
+      bindGroups.advect[stateIndex] = createComputeBindGroup(pipelines.advect, stateEntries);
       bindGroups.divergence[stateIndex] = createComputeBindGroup(pipelines.divergence, [
         [0, uniformBuffer], [1, stateBuffers[stateIndex]], [3, divergenceBuffer], [5, pressureBuffers[0]]
       ]);
@@ -545,9 +444,7 @@ fn fragmentMain(input: VertexOutput) -> @location(0) vec4<f32> {
 
     dispatch(compute, pipelines.forces, bindGroups.forces[currentState]);
     currentState = 1 - currentState;
-    dispatch(compute, pipelines.advectForward, bindGroups.advectForward[currentState]);
-    dispatch(compute, pipelines.advectReverse, bindGroups.advectReverse[currentState]);
-    dispatch(compute, pipelines.correct, bindGroups.correct[currentState]);
+    dispatch(compute, pipelines.advect, bindGroups.advect[currentState]);
     currentState = 1 - currentState;
     dispatch(compute, pipelines.divergence, bindGroups.divergence[currentState]);
 
@@ -633,9 +530,7 @@ fn fragmentMain(input: VertexOutput) -> @location(0) vec4<f32> {
 
     var createdPipelines = await Promise.all([
       device.createComputePipelineAsync({ layout: pipelineLayout, compute: { module: simulationModule, entryPoint: "forces" } }),
-      device.createComputePipelineAsync({ layout: pipelineLayout, compute: { module: simulationModule, entryPoint: "advectForward" } }),
-      device.createComputePipelineAsync({ layout: pipelineLayout, compute: { module: simulationModule, entryPoint: "advectReverse" } }),
-      device.createComputePipelineAsync({ layout: pipelineLayout, compute: { module: simulationModule, entryPoint: "correctMacCormack" } }),
+      device.createComputePipelineAsync({ layout: pipelineLayout, compute: { module: simulationModule, entryPoint: "advect" } }),
       device.createComputePipelineAsync({ layout: pipelineLayout, compute: { module: simulationModule, entryPoint: "computeDivergence" } }),
       device.createComputePipelineAsync({ layout: pipelineLayout, compute: { module: simulationModule, entryPoint: "solvePressure" } }),
       device.createComputePipelineAsync({ layout: pipelineLayout, compute: { module: simulationModule, entryPoint: "subtractGradient" } }),
@@ -659,13 +554,11 @@ fn fragmentMain(input: VertexOutput) -> @location(0) vec4<f32> {
 
     pipelines = {
       forces: createdPipelines[0],
-      advectForward: createdPipelines[1],
-      advectReverse: createdPipelines[2],
-      correct: createdPipelines[3],
-      divergence: createdPipelines[4],
-      pressure: createdPipelines[5],
-      gradient: createdPipelines[6],
-      render: createdPipelines[7]
+      advect: createdPipelines[1],
+      divergence: createdPipelines[2],
+      pressure: createdPipelines[3],
+      gradient: createdPipelines[4],
+      render: createdPipelines[5]
     };
 
     document.addEventListener("pointermove", handlePointerMove, { passive: true });
