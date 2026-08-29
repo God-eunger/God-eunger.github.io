@@ -7,7 +7,7 @@ title: Research
 <br>
 <div class="row">
     <iframe width="400" height="280" src="https://www.youtube.com/embed/KO75vKLfJVU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="margin-right: 2rem"></iframe>
-    <iframe width="400" height="280" src="https://www.youtube.com/embed/4UWKqwnEQkk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe width="400" height="280" src="https://www.youtube.com/embed/_FFpkrXm-hg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
 
 #### 물리 기반 애니메이션
