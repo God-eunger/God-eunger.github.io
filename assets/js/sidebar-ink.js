@@ -2,7 +2,7 @@
   "use strict";
 
   var sidebar = document.getElementById("sidebar");
-  var canvas = sidebar && sidebar.querySelector(".smoke-plume");
+  var canvas = sidebar && sidebar.querySelector(".ink-drop");
   var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   if (!sidebar || !canvas || !navigator.gpu || reducedMotion.matches) return;
@@ -85,6 +85,21 @@ fn velocityAt(cell: vec2<i32>) -> vec2<f32> {
   return inputState[cellIndex(safeCell)].xy;
 }
 
+fn curlAt(cell: vec2<i32>) -> f32 {
+  if (!inBounds(cell)) { return 0.0; }
+  let safeCell = vec2<u32>(cell);
+  if (isBoundary(safeCell) || isObstacle(safeCell)) { return 0.0; }
+
+  let left = velocityAt(cell + vec2<i32>(-1, 0)).y;
+  let right = velocityAt(cell + vec2<i32>(1, 0)).y;
+  let top = velocityAt(cell + vec2<i32>(0, -1)).x;
+  let bottom = velocityAt(cell + vec2<i32>(0, 1)).x;
+  return 0.5 * (
+    (right - left) * f32(params.size.x) -
+    (bottom - top) * f32(params.size.y)
+  );
+}
+
 fn pressureAt(cell: vec2<i32>, centerPressure: f32) -> f32 {
   if (!inBounds(cell)) { return centerPressure; }
   let safeCell = vec2<u32>(cell);
@@ -109,17 +124,29 @@ fn forces(@builtin(global_invocation_id) id: vec3<u32>) {
 
   let uv = cellUv(cell);
   let previousState = inputState[offset];
-  var velocity = previousState.xy * pow(0.42, params.dt);
+  var velocity = previousState.xy * pow(0.9999, params.dt);
   var density = previousState.z * pow(0.70, params.dt);
 
-  let sourceCenter = vec2<f32>(0.5 + 0.075 * sin(params.time * 0.72), 0.955);
-  let sourceDelta = (uv - sourceCenter) / vec2<f32>(0.07, 0.028);
-  let source = max(0.0, 1.0 - dot(sourceDelta, sourceDelta));
-  density = min(1.5, density + params.dt * 3.0 * source);
+  let sourceCenter = vec2<f32>(0.5 + 0.12 * sin(params.time * 0.37), 0.065);
+  let sourceDelta = (uv - sourceCenter) / vec2<f32>(0.05, 0.018);
+  let sourcePulse = pow(max(0.0, cos(params.time * 2.4)), 18.0);
+  let source = max(0.0, 1.0 - dot(sourceDelta, sourceDelta)) * sourcePulse;
+  density = min(12.0, density + params.dt * 100.0 * source);
+
+  let position = vec2<i32>(cell);
+  let curl = curlAt(position);
+  let curlGradient = 0.5 * vec2<f32>(
+    (abs(curlAt(position + vec2<i32>(1, 0))) - abs(curlAt(position + vec2<i32>(-1, 0)))) * f32(params.size.x),
+    (abs(curlAt(position + vec2<i32>(0, 1))) - abs(curlAt(position + vec2<i32>(0, -1)))) * f32(params.size.y)
+  );
+  let curlNormal = curlGradient / max(length(curlGradient), 0.00001);
+  let cellScale = 1.0 / f32(max(params.size.x, params.size.y));
+  let confinement = 6.0 * cellScale * curl * vec2<f32>(curlNormal.y, -curlNormal.x);
+
   velocity = velocity + vec2<f32>(
     params.dt * 0.022 * sin(f32(cell.y) * 0.31 + params.time * 1.7),
-    -params.dt * (0.72 * source + 0.085 * density)
-  );
+    params.dt * (1.5 * source + 1.25 * density)
+  ) + params.dt * confinement;
 
   let obstacleDelta = (uv - params.pointer) / params.obstacleRadius;
   let obstacleDistance = length(obstacleDelta);
@@ -452,7 +479,7 @@ fn fragmentMain(input: VertexOutput) -> @location(0) vec4<f32> {
     dispatch(compute, pipelines.divergence, bindGroups.divergence[currentState]);
 
     var pressureState = 0;
-    for (var iteration = 0; iteration < 14; iteration += 1) {
+    for (var iteration = 0; iteration < 50; iteration += 1) {
       dispatch(compute, pipelines.pressure, bindGroups.pressure[pressureState]);
       pressureState = 1 - pressureState;
     }
@@ -586,6 +613,6 @@ fn fragmentMain(input: VertexOutput) -> @location(0) vec4<f32> {
   }
 
   initialize().catch(function (error) {
-    console.warn("Sidebar smoke could not start:", error);
+    console.warn("Sidebar ink could not start:", error);
   });
 }());

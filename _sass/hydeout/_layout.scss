@@ -41,7 +41,7 @@ body {
   position: relative;
   isolation: isolate;
 
-  .smoke-plume {
+  .ink-drop {
     position: absolute;
     inset: 0;
     z-index: 0;
@@ -50,7 +50,7 @@ body {
     pointer-events: none;
   }
 
-  > *:not(.smoke-plume) {
+  > *:not(.ink-drop) {
     position: relative;
     z-index: 1;
   }
@@ -67,7 +67,7 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  #sidebar .smoke-plume { display: none; }
+  #sidebar .ink-drop { display: none; }
 }
 
 // Container is flexbox as well -- we want content div to stretch and fill
