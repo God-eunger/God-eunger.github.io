@@ -108,23 +108,25 @@ fn forces(@builtin(global_invocation_id) id: vec3<u32>) {
   }
 
   let uv = cellUv(cell);
-  var state = inputState[offset];
-  state.xy = state.xy * pow(0.42, params.dt);
-  state.z = state.z * pow(0.70, params.dt);
+  let previousState = inputState[offset];
+  var velocity = previousState.xy * pow(0.42, params.dt);
+  var density = previousState.z * pow(0.70, params.dt);
 
   let sourceCenter = vec2<f32>(0.5 + 0.075 * sin(params.time * 0.72), 0.955);
   let sourceDelta = (uv - sourceCenter) / vec2<f32>(0.07, 0.028);
   let source = max(0.0, 1.0 - dot(sourceDelta, sourceDelta));
-  state.z = min(1.5, state.z + params.dt * 3.0 * source);
-  state.y = state.y - params.dt * (0.72 * source + 0.085 * state.z);
-  state.x = state.x + params.dt * (0.022 * sin(f32(cell.y) * 0.31 + params.time * 1.7));
+  density = min(1.5, density + params.dt * 3.0 * source);
+  velocity = velocity + vec2<f32>(
+    params.dt * 0.022 * sin(f32(cell.y) * 0.31 + params.time * 1.7),
+    -params.dt * (0.72 * source + 0.085 * density)
+  );
 
   let obstacleDelta = (uv - params.pointer) / params.obstacleRadius;
   let obstacleDistance = length(obstacleDelta);
   let boundaryInfluence = 1.0 - smoothstep(1.0, 1.75, obstacleDistance);
-  state.xy = mix(state.xy, obstacleVelocity(), boundaryInfluence * 0.45);
+  velocity = mix(velocity, obstacleVelocity(), boundaryInfluence * 0.45);
 
-  outputState[offset] = state;
+  outputState[offset] = vec4<f32>(velocity, density, 0.0);
 }
 
 @compute @workgroup_size(8, 8)
@@ -214,18 +216,24 @@ fn subtractGradient(@builtin(global_invocation_id) id: vec3<u32>) {
   let right = pressureAt(position + vec2<i32>(1, 0), center);
   let top = pressureAt(position + vec2<i32>(0, -1), center);
   let bottom = pressureAt(position + vec2<i32>(0, 1), center);
-  var state = inputState[offset];
-  state.x = state.x - 0.5 * f32(params.size.x) * (right - left);
-  state.y = state.y - 0.5 * f32(params.size.y) * (bottom - top);
+  let input = inputState[offset];
+  var velocity = input.xy - vec2<f32>(
+    0.5 * f32(params.size.x) * (right - left),
+    0.5 * f32(params.size.y) * (bottom - top)
+  );
 
   let leftCell = vec2<u32>(max(position + vec2<i32>(-1, 0), vec2<i32>(0)));
   let rightCell = vec2<u32>(min(position + vec2<i32>(1, 0), vec2<i32>(params.size) - vec2<i32>(1)));
   let topCell = vec2<u32>(max(position + vec2<i32>(0, -1), vec2<i32>(0)));
   let bottomCell = vec2<u32>(min(position + vec2<i32>(0, 1), vec2<i32>(params.size) - vec2<i32>(1)));
-  if (isObstacle(leftCell) || isObstacle(rightCell)) { state.x = params.pointerVelocity.x; }
-  if (isObstacle(topCell) || isObstacle(bottomCell)) { state.y = params.pointerVelocity.y; }
+  if (isObstacle(leftCell) || isObstacle(rightCell)) {
+    velocity = vec2<f32>(params.pointerVelocity.x, velocity.y);
+  }
+  if (isObstacle(topCell) || isObstacle(bottomCell)) {
+    velocity = vec2<f32>(velocity.x, params.pointerVelocity.y);
+  }
 
-  outputState[offset] = state;
+  outputState[offset] = vec4<f32>(velocity, input.z, 0.0);
 }
 `;
 
