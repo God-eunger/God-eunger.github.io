@@ -17,6 +17,7 @@ struct Params {
   emitterRadius: vec2<f32>,
   emitterActive: f32,
   padding: f32,
+  previousPointer: vec2<f32>,
 }
 
 @group(0) @binding(0) var<uniform> params: Params;
@@ -118,9 +119,18 @@ fn forces(@builtin(global_invocation_id) id: vec3<u32>) {
   let uv = cellUv(cell);
   let previousState = inputState[offset];
   var velocity = previousState.xy * pow(0.9999, params.dt * 60.0);
-  var density = previousState.z;
+  var density = previousState.z * pow(0.995, params.dt * 60.0);
 
-  let relative = (uv - params.pointer) / params.emitterRadius;
+  let scaledPosition = uv / params.emitterRadius;
+  let segmentStart = params.previousPointer / params.emitterRadius;
+  let segmentEnd = params.pointer / params.emitterRadius;
+  let segment = segmentEnd - segmentStart;
+  let segmentAmount = clamp(
+    dot(scaledPosition - segmentStart, segment) / max(dot(segment, segment), 0.00001),
+    0.0,
+    1.0
+  );
+  let relative = scaledPosition - mix(segmentStart, segmentEnd, segmentAmount);
   let emitter = params.emitterActive * exp(-4.0 * dot(relative, relative));
   density = min(1.0, density + params.dt * 100.0 * emitter);
 
@@ -235,6 +245,7 @@ struct Params {
   emitterRadius: vec2<f32>,
   emitterActive: f32,
   padding: f32,
+  previousPointer: vec2<f32>,
 }
 
 struct VertexOutput {
@@ -314,7 +325,10 @@ fn fragmentMain(input: VertexOutput) -> @location(0) vec4<f32> {
     previousY: -1,
     previousTime: 0,
     velocityX: 0,
-    velocityY: 0
+    velocityY: 0,
+    emitterX: 0,
+    emitterY: 0,
+    emitterActive: false
   };
 
   function clamp(value, minimum, maximum) {
@@ -405,7 +419,7 @@ fn fragmentMain(input: VertexOutput) -> @location(0) vec4<f32> {
     var localX = pointer.clientX - rect.left;
     var localY = pointer.clientY - rect.top;
     var active = localX >= 0 && localY >= 0 && localX <= rect.width && localY <= rect.height;
-    var data = new ArrayBuffer(48);
+    var data = new ArrayBuffer(64);
     var integers = new Uint32Array(data);
     var floats = new Float32Array(data);
 
@@ -415,13 +429,20 @@ fn fragmentMain(input: VertexOutput) -> @location(0) vec4<f32> {
     floats[3] = simulationTime;
     var radiusX = 18 / Math.max(rect.width, 1);
     var radiusY = 18 / Math.max(rect.height, 1);
-    floats[4] = clamp(localX / Math.max(rect.width, 1), 0, 1);
-    floats[5] = clamp(localY / Math.max(rect.height, 1), 0, 1);
+    var emitterX = clamp(localX / Math.max(rect.width, 1), 0, 1);
+    var emitterY = clamp(localY / Math.max(rect.height, 1), 0, 1);
+    floats[4] = emitterX;
+    floats[5] = emitterY;
     floats[6] = active ? pointer.velocityX : 0;
     floats[7] = active ? pointer.velocityY : 0;
     floats[8] = radiusX;
     floats[9] = radiusY;
     floats[10] = active ? 1 : 0;
+    floats[12] = pointer.emitterActive ? pointer.emitterX : emitterX;
+    floats[13] = pointer.emitterActive ? pointer.emitterY : emitterY;
+    pointer.emitterX = emitterX;
+    pointer.emitterY = emitterY;
+    pointer.emitterActive = active;
 
     device.queue.writeBuffer(uniformBuffer, 0, data);
   }
@@ -522,7 +543,7 @@ fn fragmentMain(input: VertexOutput) -> @location(0) vec4<f32> {
 
     format = navigator.gpu.getPreferredCanvasFormat();
     context.configure({ device: device, format: format, alphaMode: "premultiplied" });
-    uniformBuffer = createBuffer(48, GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST);
+    uniformBuffer = createBuffer(64, GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST);
 
     var simulationModule = device.createShaderModule({ code: simulationShader });
     var renderModule = device.createShaderModule({ code: renderShader });
