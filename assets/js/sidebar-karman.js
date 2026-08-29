@@ -159,7 +159,7 @@ fn forces(@builtin(global_invocation_id) id: vec3<u32>) {
   );
   let curlNormal = curlGradient / max(length(curlGradient), 0.00001);
   let cellScale = 1.0 / f32(max(params.size.x, params.size.y));
-  let confinement = 1.2 * cellScale * curl * vec2<f32>(curlNormal.y, -curlNormal.x);
+  let confinement = 4.0 * cellScale * curl * vec2<f32>(curlNormal.y, -curlNormal.x);
 
   let emitterForce = 8.0 * emitter * params.pointerVelocity;
   velocity = velocity + params.dt * (confinement + emitterForce);
