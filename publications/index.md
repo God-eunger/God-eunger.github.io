@@ -4,7 +4,7 @@ title: Publications
 ---
 
 ### 2026
- * **Conditionally accepted to SIGGRAPH Asia 2026**
+ * Seung-wook Kim and Kiwon Um, “Lanczos Advection: Near-Orthogonal Semi-Lagrangian Reconstruction for Fluid Simulation,” **SIGGRAPH ASIA**, August 1-4, 2026 (published in **ACM Transactions on Graphics**, Vol. 45, No. 6, December 2026). [[doi]](https://doi.org/10.1145/3842541)
  * Jaehyuk Lim, Donggyu Lee, Junghyun Han, and Seung-wook Kim, “Parameter-preserving Real-time BIM Rendering via Direct GPU Ray Tracing,” **Computer Animation and Social Agents (CASA)**, June 1-3, 2026, Geneva, Switzerland (published in **Computer Animation and Virtual Worlds**, Vol. 37, No. 3, June 2026, pp. e70159). [[doi]](https://doi.org/10.1002/cav.70159)
 
 ### 2025
