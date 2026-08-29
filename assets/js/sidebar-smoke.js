@@ -508,7 +508,7 @@ fn fragmentMain(input: VertexOutput) -> @location(0) vec4<f32> {
   }
 
   async function initialize() {
-    var adapter = await navigator.gpu.requestAdapter({ powerPreference: "high-performance" });
+    var adapter = await navigator.gpu.requestAdapter();
     if (!adapter) return;
 
     device = await adapter.requestDevice();

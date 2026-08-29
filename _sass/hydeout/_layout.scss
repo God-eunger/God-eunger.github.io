@@ -211,10 +211,17 @@ body {
 
   #sidebar, .home #sidebar {
     width: $sidebar-width;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     text-align: left;
 
     > *:last-child {
       margin-bottom: 0;
+    }
+
+    > header {
+      margin-top: auto;
     }
   }
 
