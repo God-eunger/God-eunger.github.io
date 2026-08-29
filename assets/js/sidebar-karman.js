@@ -14,8 +14,9 @@ struct Params {
   time: f32,
   pointer: vec2<f32>,
   pointerVelocity: vec2<f32>,
-  obstacleRadius: vec2<f32>,
-  padding: vec2<f32>,
+  emitterRadius: vec2<f32>,
+  emitterActive: f32,
+  padding: f32,
 }
 
 @group(0) @binding(0) var<uniform> params: Params;
@@ -42,87 +43,45 @@ fn isBoundary(cell: vec2<u32>) -> bool {
     cell.x + 1u == params.size.x || cell.y + 1u == params.size.y;
 }
 
-fn flowVelocity() -> vec2<f32> {
-  return vec2<f32>(0.0, 0.18);
-}
-
 fn cellUv(cell: vec2<u32>) -> vec2<f32> {
   return (vec2<f32>(cell) + vec2<f32>(0.5)) / vec2<f32>(params.size);
-}
-
-fn isObstacleUv(uv: vec2<f32>) -> bool {
-  let delta = (uv - params.pointer) / params.obstacleRadius;
-  return dot(delta, delta) <= 1.0;
-}
-
-fn isObstacle(cell: vec2<u32>) -> bool {
-  return isObstacleUv(cellUv(cell));
-}
-
-fn obstacleVelocity() -> vec2<f32> {
-  return params.pointerVelocity;
 }
 
 fn boundaryState(cell: vec2<i32>) -> vec4<f32> {
   let width = i32(params.size.x);
   let height = i32(params.size.y);
-
-  if (cell.y <= 0) {
-    return vec4<f32>(flowVelocity(), 0.0, 0.0);
-  }
-
-  if (cell.y >= height - 1) {
-    let innerCell = vec2<u32>(u32(clamp(cell.x, 1, width - 2)), u32(height - 2));
-    let innerState = inputState[cellIndex(innerCell)];
-    return vec4<f32>(innerState.x, max(innerState.y, 0.0), innerState.z, 0.0);
-  }
-
-  if (cell.x <= 0) {
-    let innerState = inputState[cellIndex(vec2<u32>(1u, u32(cell.y)))];
-    return vec4<f32>(0.0, innerState.y, innerState.z, 0.0);
-  }
-
-  if (cell.x >= width - 1) {
-    let innerState = inputState[cellIndex(vec2<u32>(u32(width - 2), u32(cell.y)))];
-    return vec4<f32>(0.0, innerState.y, innerState.z, 0.0);
-  }
-
-  return inputState[cellIndex(vec2<u32>(cell))];
+  let innerCell = vec2<u32>(
+    u32(clamp(cell.x, 1, width - 2)),
+    u32(clamp(cell.y, 1, height - 2))
+  );
+  let innerState = inputState[cellIndex(innerCell)];
+  var velocity = innerState.xy;
+  if (cell.x <= 0) { velocity = vec2<f32>(min(velocity.x, 0.0), velocity.y); }
+  if (cell.x >= width - 1) { velocity = vec2<f32>(max(velocity.x, 0.0), velocity.y); }
+  if (cell.y <= 0) { velocity = vec2<f32>(velocity.x, min(velocity.y, 0.0)); }
+  if (cell.y >= height - 1) { velocity = vec2<f32>(velocity.x, max(velocity.y, 0.0)); }
+  return vec4<f32>(velocity, innerState.z, 0.0);
 }
 
 fn originalBoundaryState(cell: vec2<i32>) -> vec4<f32> {
   let width = i32(params.size.x);
   let height = i32(params.size.y);
-
-  if (cell.y <= 0) {
-    return vec4<f32>(flowVelocity(), 0.0, 0.0);
-  }
-
-  if (cell.y >= height - 1) {
-    let innerCell = vec2<u32>(u32(clamp(cell.x, 1, width - 2)), u32(height - 2));
-    let innerState = originalState[cellIndex(innerCell)];
-    return vec4<f32>(innerState.x, max(innerState.y, 0.0), innerState.z, 0.0);
-  }
-
-  if (cell.x <= 0) {
-    let innerState = originalState[cellIndex(vec2<u32>(1u, u32(cell.y)))];
-    return vec4<f32>(0.0, innerState.y, innerState.z, 0.0);
-  }
-
-  if (cell.x >= width - 1) {
-    let innerState = originalState[cellIndex(vec2<u32>(u32(width - 2), u32(cell.y)))];
-    return vec4<f32>(0.0, innerState.y, innerState.z, 0.0);
-  }
-
-  return originalState[cellIndex(vec2<u32>(cell))];
+  let innerCell = vec2<u32>(
+    u32(clamp(cell.x, 1, width - 2)),
+    u32(clamp(cell.y, 1, height - 2))
+  );
+  let innerState = originalState[cellIndex(innerCell)];
+  var velocity = innerState.xy;
+  if (cell.x <= 0) { velocity = vec2<f32>(min(velocity.x, 0.0), velocity.y); }
+  if (cell.x >= width - 1) { velocity = vec2<f32>(max(velocity.x, 0.0), velocity.y); }
+  if (cell.y <= 0) { velocity = vec2<f32>(velocity.x, min(velocity.y, 0.0)); }
+  if (cell.y >= height - 1) { velocity = vec2<f32>(velocity.x, max(velocity.y, 0.0)); }
+  return vec4<f32>(velocity, innerState.z, 0.0);
 }
 
 fn originalAt(cell: vec2<i32>) -> vec4<f32> {
   if (!inBounds(cell)) { return originalBoundaryState(cell); }
   let safeCell = vec2<u32>(cell);
-  if (isObstacle(safeCell)) {
-    return vec4<f32>(obstacleVelocity(), 0.0, 0.0);
-  }
   if (isBoundary(safeCell)) { return originalBoundaryState(cell); }
   return originalState[cellIndex(safeCell)];
 }
@@ -130,9 +89,6 @@ fn originalAt(cell: vec2<i32>) -> vec4<f32> {
 fn stateAt(cell: vec2<i32>) -> vec4<f32> {
   if (!inBounds(cell)) { return boundaryState(cell); }
   let safeCell = vec2<u32>(cell);
-  if (isObstacle(safeCell)) {
-    return vec4<f32>(obstacleVelocity(), 0.0, 0.0);
-  }
   if (isBoundary(safeCell)) { return boundaryState(cell); }
   return inputState[cellIndex(safeCell)];
 }
@@ -154,7 +110,7 @@ fn velocityAt(cell: vec2<i32>) -> vec2<f32> {
 fn curlAt(cell: vec2<i32>) -> f32 {
   if (!inBounds(cell)) { return 0.0; }
   let safeCell = vec2<u32>(cell);
-  if (isBoundary(safeCell) || isObstacle(safeCell)) { return 0.0; }
+  if (isBoundary(safeCell)) { return 0.0; }
 
   let left = velocityAt(cell + vec2<i32>(-1, 0)).y;
   let right = velocityAt(cell + vec2<i32>(1, 0)).y;
@@ -169,11 +125,10 @@ fn curlAt(cell: vec2<i32>) -> f32 {
 fn pressureAt(cell: vec2<i32>, centerPressure: f32) -> f32 {
   let width = i32(params.size.x);
   let height = i32(params.size.y);
-  if (cell.y >= height - 1) { return 0.0; }
-  if (cell.y <= 0 || cell.x <= 0 || cell.x >= width - 1) { return centerPressure; }
-  let safeCell = vec2<u32>(cell);
-  if (isObstacle(safeCell)) { return centerPressure; }
-  return pressureInput[cellIndex(safeCell)];
+  if (cell.y <= 0 || cell.y >= height - 1 || cell.x <= 0 || cell.x >= width - 1) {
+    return 0.0;
+  }
+  return pressureInput[cellIndex(vec2<u32>(cell))];
 }
 
 @compute @workgroup_size(8, 8)
@@ -186,22 +141,15 @@ fn forces(@builtin(global_invocation_id) id: vec3<u32>) {
     outputState[offset] = boundaryState(vec2<i32>(cell));
     return;
   }
-  if (isObstacle(cell)) {
-    outputState[offset] = vec4<f32>(obstacleVelocity(), 0.0, 0.0);
-    return;
-  }
 
   let uv = cellUv(cell);
   let previousState = inputState[offset];
-  let drive = 1.0 - exp(-1.2 * params.dt);
-  var velocity = mix(previousState.xy, flowVelocity(), drive);
+  var velocity = previousState.xy * pow(0.9999, params.dt * 60.0);
   var density = previousState.z;
 
-  let relative = (uv - params.pointer) / params.obstacleRadius;
-  let dyeSource =
-    exp(-3.0 * relative.x * relative.x) *
-    exp(-80.0 * (relative.y + 1.35) * (relative.y + 1.35));
-  density = min(1.0, density + params.dt * 2.5 * dyeSource);
+  let relative = (uv - params.pointer) / params.emitterRadius;
+  let emitter = params.emitterActive * exp(-4.0 * dot(relative, relative));
+  density = min(1.0, density + params.dt * 100.0 * emitter);
 
   let position = vec2<i32>(cell);
   let curl = curlAt(position);
@@ -213,32 +161,14 @@ fn forces(@builtin(global_invocation_id) id: vec3<u32>) {
   let cellScale = 1.0 / f32(max(params.size.x, params.size.y));
   let confinement = 1.2 * cellScale * curl * vec2<f32>(curlNormal.y, -curlNormal.x);
 
-  let diameter = 2.0 * params.obstacleRadius.y;
-  let sheddingHz = 0.20 * flowVelocity().y /
-    max(diameter, 2.0 / f32(params.size.y));
-  let phase = 6.28318530718 * sheddingHz * params.time;
-  let wakeMask =
-    exp(-2.0 * relative.x * relative.x) *
-    exp(-3.0 * (relative.y - 1.4) * (relative.y - 1.4));
-  let seedAcceleration =
-    0.015 * flowVelocity().y * 6.28318530718 * sheddingHz * sin(phase) * wakeMask;
-
-  velocity = velocity + params.dt *
-    (confinement + vec2<f32>(seedAcceleration, 0.0));
-
-  let obstacleDelta = (uv - params.pointer) / params.obstacleRadius;
-  let obstacleDistance = length(obstacleDelta);
-  let boundaryInfluence = 1.0 - smoothstep(1.0, 1.75, obstacleDistance);
-  velocity = mix(velocity, obstacleVelocity(), boundaryInfluence * 0.85);
+  let emitterForce = 8.0 * emitter * params.pointerVelocity;
+  velocity = velocity + params.dt * (confinement + emitterForce);
 
   outputState[offset] = vec4<f32>(velocity, density, 0.0);
 }
 
 fn advectedState(cell: vec2<u32>, direction: f32) -> vec4<f32> {
   if (isBoundary(cell)) { return boundaryState(vec2<i32>(cell)); }
-  if (isObstacle(cell)) {
-    return vec4<f32>(obstacleVelocity(), 0.0, 0.0);
-  }
 
   let offset = cellIndex(cell);
   let uv = cellUv(cell);
@@ -261,10 +191,6 @@ fn advectReverse(@builtin(global_invocation_id) id: vec3<u32>) {
     outputState[offset] = boundaryState(vec2<i32>(cell));
     return;
   }
-  if (isObstacle(cell)) {
-    outputState[offset] = vec4<f32>(obstacleVelocity(), 0.0, 0.0);
-    return;
-  }
   outputState[offset] = sampleState(cellUv(cell) + params.dt * originalState[offset].xy);
 }
 
@@ -276,10 +202,6 @@ fn correctMacCormack(@builtin(global_invocation_id) id: vec3<u32>) {
 
   if (isBoundary(cell)) {
     correctedState[offset] = originalBoundaryState(vec2<i32>(cell));
-    return;
-  }
-  if (isObstacle(cell)) {
-    correctedState[offset] = vec4<f32>(obstacleVelocity(), 0.0, 0.0);
     return;
   }
 
@@ -297,9 +219,7 @@ fn correctMacCormack(@builtin(global_invocation_id) id: vec3<u32>) {
   if (
     !inBounds(cell00) || !inBounds(cell10) || !inBounds(cell01) || !inBounds(cell11) ||
     isBoundary(vec2<u32>(cell00)) || isBoundary(vec2<u32>(cell10)) ||
-    isBoundary(vec2<u32>(cell01)) || isBoundary(vec2<u32>(cell11)) ||
-    isObstacle(vec2<u32>(cell00)) || isObstacle(vec2<u32>(cell10)) ||
-    isObstacle(vec2<u32>(cell01)) || isObstacle(vec2<u32>(cell11))
+    isBoundary(vec2<u32>(cell01)) || isBoundary(vec2<u32>(cell11))
   ) {
     correctedState[offset] = predictor;
     return;
@@ -321,7 +241,7 @@ fn computeDivergence(@builtin(global_invocation_id) id: vec3<u32>) {
   let offset = cellIndex(cell);
   pressureOutput[offset] = 0.0;
 
-  if (isBoundary(cell) || isObstacle(cell)) {
+  if (isBoundary(cell)) {
     divergence[offset] = 0.0;
     return;
   }
@@ -341,7 +261,7 @@ fn solvePressure(@builtin(global_invocation_id) id: vec3<u32>) {
   if (any(cell >= params.size)) { return; }
   let offset = cellIndex(cell);
 
-  if (isBoundary(cell) || isObstacle(cell)) {
+  if (isBoundary(cell)) {
     pressureOutput[offset] = 0.0;
     return;
   }
@@ -370,10 +290,6 @@ fn subtractGradient(@builtin(global_invocation_id) id: vec3<u32>) {
     outputState[offset] = boundaryState(vec2<i32>(cell));
     return;
   }
-  if (isObstacle(cell)) {
-    outputState[offset] = vec4<f32>(obstacleVelocity(), 0.0, 0.0);
-    return;
-  }
 
   let position = vec2<i32>(cell);
   let center = pressureInput[offset];
@@ -387,17 +303,6 @@ fn subtractGradient(@builtin(global_invocation_id) id: vec3<u32>) {
     0.5 * f32(params.size.y) * (bottom - top)
   );
 
-  let leftCell = vec2<u32>(max(position + vec2<i32>(-1, 0), vec2<i32>(0)));
-  let rightCell = vec2<u32>(min(position + vec2<i32>(1, 0), vec2<i32>(params.size) - vec2<i32>(1)));
-  let topCell = vec2<u32>(max(position + vec2<i32>(0, -1), vec2<i32>(0)));
-  let bottomCell = vec2<u32>(min(position + vec2<i32>(0, 1), vec2<i32>(params.size) - vec2<i32>(1)));
-  if (isObstacle(leftCell) || isObstacle(rightCell)) {
-    velocity = vec2<f32>(params.pointerVelocity.x, velocity.y);
-  }
-  if (isObstacle(topCell) || isObstacle(bottomCell)) {
-    velocity = vec2<f32>(velocity.x, params.pointerVelocity.y);
-  }
-
   outputState[offset] = vec4<f32>(velocity, input.z, 0.0);
 }
 `;
@@ -409,8 +314,9 @@ struct Params {
   time: f32,
   pointer: vec2<f32>,
   pointerVelocity: vec2<f32>,
-  obstacleRadius: vec2<f32>,
-  padding: vec2<f32>,
+  emitterRadius: vec2<f32>,
+  emitterActive: f32,
+  padding: f32,
 }
 
 struct VertexOutput {
@@ -440,31 +346,6 @@ fn sampleDensity(uv: vec2<f32>) -> f32 {
   return mix(top, bottom, fraction.y);
 }
 
-fn velocityAt(cell: vec2<i32>) -> vec2<f32> {
-  let safeCell = vec2<u32>(clamp(
-    cell,
-    vec2<i32>(0),
-    vec2<i32>(params.size) - vec2<i32>(1)
-  ));
-  return state[safeCell.x + safeCell.y * params.size.x].xy;
-}
-
-fn vorticityAt(uv: vec2<f32>) -> f32 {
-  let cell = clamp(
-    vec2<i32>(uv * vec2<f32>(params.size)),
-    vec2<i32>(1),
-    vec2<i32>(params.size) - vec2<i32>(2)
-  );
-  let left = velocityAt(cell + vec2<i32>(-1, 0)).y;
-  let right = velocityAt(cell + vec2<i32>(1, 0)).y;
-  let top = velocityAt(cell + vec2<i32>(0, -1)).x;
-  let bottom = velocityAt(cell + vec2<i32>(0, 1)).x;
-  return 0.5 * (
-    (right - left) * f32(params.size.x) -
-    (bottom - top) * f32(params.size.y)
-  );
-}
-
 @vertex
 fn vertexMain(@builtin(vertex_index) index: u32) -> VertexOutput {
   let positions = array<vec2<f32>, 3>(
@@ -482,18 +363,13 @@ fn vertexMain(@builtin(vertex_index) index: u32) -> VertexOutput {
 @fragment
 fn fragmentMain(input: VertexOutput) -> @location(0) vec4<f32> {
   let density = clamp(sampleDensity(input.uv), 0.0, 1.0);
-  let vorticity = vorticityAt(input.uv);
-  let vortexAmount = clamp(abs(vorticity) * 0.10, 0.0, 1.0);
-  let inkColor = vec3<f32>(0.82, 0.94, 1.0);
-  var vortexColor = vec3<f32>(0.38, 0.90, 1.0);
-  if (vorticity < 0.0) {
-    vortexColor = vec3<f32>(1.0, 0.52, 0.74);
-  }
-  let colorWeight = density + 0.8 * vortexAmount;
-  let color = (density * inkColor + 0.8 * vortexAmount * vortexColor) /
-    max(colorWeight, 0.0001);
-  let alpha = clamp(0.48 * density + 0.32 * vortexAmount, 0.0, 0.72);
-  return vec4<f32>(color * alpha, alpha);
+  let inkColor = mix(
+    vec3<f32>(0.32, 0.70, 0.98),
+    vec3<f32>(0.88, 0.97, 1.0),
+    sqrt(density)
+  );
+  let alpha = 0.68 * (1.0 - exp(-3.0 * density));
+  return vec4<f32>(inkColor * alpha, alpha);
 }
 `;
 
@@ -638,18 +514,15 @@ fn fragmentMain(input: VertexOutput) -> @location(0) vec4<f32> {
     integers[1] = gridHeight;
     floats[2] = dt;
     floats[3] = simulationTime;
-    var radiusX = 24 / Math.max(rect.width, 1);
-    var radiusY = 24 / Math.max(rect.height, 1);
-    var obstacleX = active ? localX / Math.max(rect.width, 1) : 0.5;
-    var obstacleY = active ? localY / Math.max(rect.height, 1) : 0.3;
-    obstacleX = clamp(obstacleX, radiusX + 2 / gridWidth, 1 - radiusX - 2 / gridWidth);
-    obstacleY = clamp(obstacleY, 2 * radiusY + 2 / gridHeight, 1 - 2 * radiusY - 2 / gridHeight);
-    floats[4] = obstacleX;
-    floats[5] = obstacleY;
+    var radiusX = 18 / Math.max(rect.width, 1);
+    var radiusY = 18 / Math.max(rect.height, 1);
+    floats[4] = clamp(localX / Math.max(rect.width, 1), 0, 1);
+    floats[5] = clamp(localY / Math.max(rect.height, 1), 0, 1);
     floats[6] = active ? pointer.velocityX : 0;
     floats[7] = active ? pointer.velocityY : 0;
     floats[8] = radiusX;
     floats[9] = radiusY;
+    floats[10] = active ? 1 : 0;
 
     device.queue.writeBuffer(uniformBuffer, 0, data);
   }
@@ -817,6 +690,6 @@ fn fragmentMain(input: VertexOutput) -> @location(0) vec4<f32> {
   }
 
   initialize().catch(function (error) {
-    console.warn("Sidebar Karman flow could not start:", error);
+    console.warn("Sidebar ink flow could not start:", error);
   });
 }());
