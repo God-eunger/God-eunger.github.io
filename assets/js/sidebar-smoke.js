@@ -109,15 +109,15 @@ fn forces(@builtin(global_invocation_id) id: vec3<u32>) {
 
   let uv = cellUv(cell);
   var state = inputState[offset];
-  state.xy *= pow(0.42, params.dt);
-  state.z *= pow(0.70, params.dt);
+  state.xy = state.xy * pow(0.42, params.dt);
+  state.z = state.z * pow(0.70, params.dt);
 
   let sourceCenter = vec2<f32>(0.5 + 0.075 * sin(params.time * 0.72), 0.955);
   let sourceDelta = (uv - sourceCenter) / vec2<f32>(0.07, 0.028);
   let source = max(0.0, 1.0 - dot(sourceDelta, sourceDelta));
   state.z = min(1.5, state.z + params.dt * 3.0 * source);
-  state.y -= params.dt * (0.72 * source + 0.085 * state.z);
-  state.x += params.dt * (0.022 * sin(f32(cell.y) * 0.31 + params.time * 1.7));
+  state.y = state.y - params.dt * (0.72 * source + 0.085 * state.z);
+  state.x = state.x + params.dt * (0.022 * sin(f32(cell.y) * 0.31 + params.time * 1.7));
 
   let obstacleDelta = (uv - params.pointer) / params.obstacleRadius;
   let obstacleDistance = length(obstacleDelta);
@@ -215,8 +215,8 @@ fn subtractGradient(@builtin(global_invocation_id) id: vec3<u32>) {
   let top = pressureAt(position + vec2<i32>(0, -1), center);
   let bottom = pressureAt(position + vec2<i32>(0, 1), center);
   var state = inputState[offset];
-  state.x -= 0.5 * f32(params.size.x) * (right - left);
-  state.y -= 0.5 * f32(params.size.y) * (bottom - top);
+  state.x = state.x - 0.5 * f32(params.size.x) * (right - left);
+  state.y = state.y - 0.5 * f32(params.size.y) * (bottom - top);
 
   let leftCell = vec2<u32>(max(position + vec2<i32>(-1, 0), vec2<i32>(0)));
   let rightCell = vec2<u32>(min(position + vec2<i32>(1, 0), vec2<i32>(params.size) - vec2<i32>(1)));
