@@ -125,11 +125,11 @@ fn forces(@builtin(global_invocation_id) id: vec3<u32>) {
   let uv = cellUv(cell);
   let previousState = inputState[offset];
   var velocity = previousState.xy * pow(0.9999, params.dt);
-  var density = previousState.z * pow(0.70, params.dt);
+  var density = previousState.z;
 
   let sourceCenter = vec2<f32>(0.5 + 0.12 * sin(params.time * 0.37), 0.065);
   let sourceDelta = (uv - sourceCenter) / vec2<f32>(0.05, 0.018);
-  let sourcePulse = pow(max(0.0, cos(params.time * 2.4)), 18.0);
+  let sourcePulse = pow(max(0.0, cos(params.time * 12.566370614359172)), 18.0);
   let source = max(0.0, 1.0 - dot(sourceDelta, sourceDelta)) * sourcePulse;
   density = min(12.0, density + params.dt * 100.0 * source);
 
@@ -145,7 +145,7 @@ fn forces(@builtin(global_invocation_id) id: vec3<u32>) {
 
   velocity = velocity + vec2<f32>(
     params.dt * 0.022 * sin(f32(cell.y) * 0.31 + params.time * 1.7),
-    params.dt * (1.5 * source + 1.25 * density)
+    params.dt * (1.0 * source + 1.25 * density)
   ) + params.dt * confinement;
 
   let obstacleDelta = (uv - params.pointer) / params.obstacleRadius;
