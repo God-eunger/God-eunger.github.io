@@ -1,8 +1,8 @@
-## 필수
+## Requirements
 ### 1. git lfs
-git lfs 설치
+Install Git LFS
 > https://git-lfs.github.com/
 
 ## git lfs
-현재 트래킹 중인 파일들
+Currently tracked file types
 > *.mov *.mp4 *.psd

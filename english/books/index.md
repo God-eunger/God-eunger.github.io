@@ -9,7 +9,7 @@ title: Books
 			<table width="300" cellspacing="0" cellpadding="10" border="0">
 				<tbody><tr>
 					<td>English Edition<br>(CRC Press, 2018.06)</td>
-					<td>Korean Edition<br>(홍릉과학출판사, 2019.05)<br>* 2019 세종도서 선정</td>
+					<td>Korean Edition<br>(Hongreung Science Publishing, 2019.05)<br>* Selected for the 2019 Sejong Books program</td>
 				</tr>
 				<tr>
 					<td><img src="/books/covers/2/eng.jpg" width="200" alt="English"></td>
@@ -84,7 +84,7 @@ title: Books
 			<table width="900" cellspacing="0" cellpadding="10" border="0">
 				<tbody><tr>
 					<td>English Edition<br>(CRC Press, 2011.02)</td>
-					<td>Korean Edition<br>(홍릉과학출판사, 2011.07)<br>* 대한민국학술원 우수학술도서 선정</td>
+					<td>Korean Edition<br>(Hongreung Science Publishing, 2011.07)<br>* Selected as an Outstanding Academic Book by the National Academy of Sciences, Republic of Korea</td>
 					<td>Chinese Edition<br>(清华大学出版社, 2013.01)</td>
 				</tr>
 				<tr>

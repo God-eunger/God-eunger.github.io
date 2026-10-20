@@ -6,7 +6,7 @@ title: Photos
 <div id="contents">
 			
 			<table class="each">
-				<caption><b>졸업식</b>: 안암  (2024.02.23)</caption>
+				<caption><b>Graduation Ceremony</b>: Anam  (2024.02.23)</caption>
 				<tbody><tr>
 					<td class="three"><a href="/photos/pictures/2024-graduation/1.jpg"><img class="photo" src="/photos/thumbnails/2024-graduation/1.png" alt="2022-sigasia"></a></td>
 					<td class="three"><a href="/photos/pictures/2024-graduation/2.jpg"><img class="photo" src="/photos/thumbnails/2024-graduation/2.jpg" alt="2022-sigasia"></a></td>
@@ -15,7 +15,7 @@ title: Photos
 			</tbody></table>
 			
 			<table class="each">
-				<caption><b>송년회 2023</b>: 녘, 강남  (2023.12.15)</caption>
+				<caption><b>Year-end Party 2023</b>: Nyeok, Gangnam  (2023.12.15)</caption>
 				<tbody><tr>
 					<td class="three"><a href="/photos/pictures/2023-year-end-party/1.jpg"><img class="photo" src="/photos/thumbnails/2023-year-end-party/1.jpg" alt="2022-sigasia"></a></td>
 					<td class="three"><a href="/photos/pictures/2023-year-end-party/2.jpg"><img class="photo" src="/photos/thumbnails/2023-year-end-party/2.jpg" alt="2022-sigasia"></a></td>
@@ -24,7 +24,7 @@ title: Photos
 			</tbody></table>
 
 			<table class="each">
-				<caption><b>NC 재직 선배 방문 및 진로 상담 멘토링</b>: NCSOFT, 판교 (2023.10.18)</caption>
+				<caption><b>Visit to NCSOFT Alumni and Career Mentoring</b>: NCSOFT, Pangyo (2023.10.18)</caption>
 				<tbody><tr>
 					<td class="three"><a href="/photos/pictures/2023-NCSoft/1.jpg"><img class="photo" src="/photos/thumbnails/2023-NCSoft/1.jpg" alt="2022-sigasia"></a></td>
 					<td class="three"><a href="/photos/pictures/2023-NCSoft/2.jpg"><img class="photo" src="/photos/thumbnails/2023-NCSoft/2.jpg" alt="2022-sigasia"></a></td>
@@ -33,7 +33,7 @@ title: Photos
 			</tbody></table>
 
 			<table class="each">
-				<caption><b>Homecoming Day 2023</b>: 무르무르, 안암 (2023.08.17)</caption>
+				<caption><b>Homecoming Day 2023</b>: Murmur, Anam (2023.08.17)</caption>
 				<tbody><tr>
 					<td class="three"><a href="/photos/pictures/2023-Homecoming-day/1.jpg"><img class="photo" src="/photos/thumbnails/2023-Homecoming-day/1.jpg" alt="2022-sigasia"></a></td>
 					<td class="three"><a href="/photos/pictures/2023-Homecoming-day/2.jpg"><img class="photo" src="/photos/thumbnails/2023-Homecoming-day/2.jpg" alt="2022-sigasia"></a></td>
@@ -42,7 +42,7 @@ title: Photos
 			</tbody></table>
 
 			<table class="each">
-				<caption><b>KCGS 2023</b>: 휘닉스 섭지코지, 제주 (2023.07.11 ~ 2023.07.14)</caption>
+				<caption><b>KCGS 2023</b>: Phoenix Seopjikoji, Jeju (2023.07.11 ~ 2023.07.14)</caption>
 				<tbody><tr>
 					<td class="three"><a href="/photos/pictures/2023-KCGS/1.jpg"><img class="photo" src="/photos/thumbnails/2023-KCGS/1.jpg" alt="2022-sigasia"></a></td>
 					<td class="three"><a href="/photos/pictures/2023-KCGS/2.jpg"><img class="photo" src="/photos/thumbnails/2023-KCGS/2.jpg" alt="2022-sigasia"></a></td>
@@ -52,7 +52,7 @@ title: Photos
 
 
 			<table class="each">
-				<caption><b>가상증강현실인력양성사업단 워크숍</b>: 해비치 리조트, 제주 (2023.07.05 ~ 2023.07.07)</caption>
+				<caption><b>Virtual and Augmented Reality Workforce Development Workshop</b>: Haevichi Resort, Jeju (2023.07.05 ~ 2023.07.07)</caption>
 				<tbody><tr>
 					<td class="three"><a href="/photos/pictures/2023-KEA/1.jpg"><img class="photo" src="/photos/thumbnails/2023-KEA/1.png" alt="2022-sigasia"></a></td>
 					<td class="three"><a href="/photos/pictures/2023-KEA/2.jpg"><img class="photo" src="/photos/thumbnails/2023-KEA/2.jpg" alt="2022-sigasia"></a></td>
@@ -79,7 +79,7 @@ title: Photos
 			</tbody></table>
 			
 			<table class="each">
-				<caption><b>SIGGRAPH Asia 2022</b>: EXCO, 대구 (2022.12.05 ~ 2022.12.09)</caption>
+				<caption><b>SIGGRAPH Asia 2022</b>: EXCO, Daegu (2022.12.05 ~ 2022.12.09)</caption>
 				<tbody><tr>
 					<td class="three"><a href="/photos/pictures/2022-sigasia/1.jpg"><img class="photo" src="/photos/thumbnails/2022-sigasia/1.jpg" alt="2022-sigasia"></a></td>
 					<td class="three"><a href="/photos/pictures/2022-sigasia/2.jpg"><img class="photo" src="/photos/thumbnails/2022-sigasia/2.jpg" alt="2022-sigasia"></a></td>
@@ -106,7 +106,7 @@ title: Photos
 			</tbody></table>
 
 			<table class="each">
-				<caption><b>졸업생 모임</b>: 그안에맛있는이탈리안, 도곡 (2022.09.16)</caption>
+				<caption><b>Alumni Gathering</b>: Geuane Matitneun Italian, Dogok (2022.09.16)</caption>
 				<tbody><tr>
 					<td class="three"><a href="/photos/pictures/2022-alumni-meeting/1.jpg"><img class="photo" src="/photos/thumbnails/2022-alumni-meeting/1.jpg" alt="2022-alumni-meeting"></a></td>
 					<td class="three"><a href="/photos/pictures/2022-alumni-meeting/2.jpg"><img class="photo" src="/photos/thumbnails/2022-alumni-meeting/2.jpg" alt="2022-alumni-meeting"></a></td>
@@ -115,7 +115,7 @@ title: Photos
 			</tbody></table>
 
 			<table class="each">
-				<caption><b>생일 축하 모임</b>: 큰대문집, 종암 (2022.09.02)</caption>
+				<caption><b>Birthday Celebration</b>: Keundaemun House, Jongam (2022.09.02)</caption>
 				<tbody><tr>
 					<td class="three"><a href="/photos/pictures/2022-bday/1.jpg"><img class="photo" src="/photos/thumbnails/2022-bday/1.jpg" alt="2022-bday"></a></td>
 					<td class="three"><a href="/photos/pictures/2022-bday/2.jpg"><img class="photo" src="/photos/thumbnails/2022-bday/2.jpg" alt="2022-bday"></a></td>
@@ -133,7 +133,7 @@ title: Photos
 			</tbody></table>
 
 			<table class="each">
-				<caption><b>KCGS 2022</b>: 델피노 리조트, 속초 (2022.07.13 ~ 2022.07.15)</caption>
+				<caption><b>KCGS 2022</b>: Del Pino Resort, Sokcho (2022.07.13 ~ 2022.07.15)</caption>
 				<tbody><tr>
 					<td class="three"><a href="/photos/pictures/2022-KCGS/1.jpg"><img class="photo" src="/photos/thumbnails/2022-KCGS/1.jpg" alt="2022-KCGS"></a></td>
 					<td class="three"><a href="/photos/pictures/2022-KCGS/2.jpg"><img class="photo" src="/photos/thumbnails/2022-KCGS/2.jpg" alt="2022-KCGS"></a></td>
@@ -142,7 +142,7 @@ title: Photos
 			</tbody></table>
 			
 			<table class="each">
-				<caption><b>스승의 날 2022</b>: 무르무르, 안암 (2022.06.24)</caption>
+				<caption><b>Teachers' Day 2022</b>: Murmur, Anam (2022.06.24)</caption>
 				<tbody><tr>
 					<td class="three"><a href="/photos/pictures/2022-tday/1.jpg"><img class="photo" src="/photos/thumbnails/2022-tday/1.jpg" alt="2022-tday"></a></td>
 					<td class="three"><a href="/photos/pictures/2022-tday/2.jpg"><img class="photo" src="/photos/thumbnails/2022-tday/2.jpg" alt="2022-tday"></a></td>
@@ -151,7 +151,7 @@ title: Photos
 			</tbody></table>
 
 			<table class="each">
-				<caption><b>전역식 행사</b>: 우정정보관, 고려대학교 (2022.04.24)</caption>
+				<caption><b>Military Discharge Ceremony</b>: WooJung Information &amp; Communications Building, Korea University (2022.04.24)</caption>
 				<tbody><tr>
 					<td class="three"><a href="/photos/pictures/2022-Military-discharge/1.jpg"><img class="photo" src="/photos/thumbnails/2022-Military-discharge/1.jpg" alt="2022-Military-discharge"></a></td>
 					<td class="three"><a href="/photos/pictures/2022-Military-discharge/2.jpg"><img class="photo" src="/photos/thumbnails/2022-Military-discharge/2.jpg" alt="2022-Military-discharge"></a></td>
@@ -160,7 +160,7 @@ title: Photos
 			</tbody></table>
 
 			<table class="each">
-				<caption><b>눈토끼 만들기</b>: 우정정보관 앞, 고려대학교 (2022.1.19)</caption>
+				<caption><b>Making a Snow Rabbit</b>: In front of WooJung Information &amp; Communications Building, Korea University (2022.1.19)</caption>
 				<tbody><tr>
 					<td class="three"><a href="/photos/pictures/2022-Snowman/1.jpg"><img class="photo" src="/photos/thumbnails/2022-Snowman/1.jpg" alt="2022-Snowman"></a></td>
 					<td class="three"><a href="/photos/pictures/2022-Snowman/2.jpg"><img class="photo" src="/photos/thumbnails/2022-Snowman/2.jpg" alt="2022-Snowman"></a></td>
@@ -169,7 +169,7 @@ title: Photos
 			</tbody></table>
 
 			<table class="each">
-				<caption><b>KCC 2021</b>: ICC 제주, 제주도 (2021.6.23 ~ 2021.6.25)</caption>
+				<caption><b>KCC 2021</b>: ICC Jeju, Jeju Island (2021.6.23 ~ 2021.6.25)</caption>
 				<tbody><tr>
 					<td class="three"><a href="/photos/pictures/2021-kcc/1.jpg"><img class="photo" src="/photos/thumbnails/2021-kcc/1.jpg" alt="2021-kcc"></a></td>
 					<td class="three"><a href="/photos/pictures/2021-kcc/2.jpg"><img class="photo" src="/photos/thumbnails/2021-kcc/2.jpg" alt="2021-kcc"></a></td>
@@ -178,7 +178,7 @@ title: Photos
 			</tbody></table>
 
 			<table class="each">
-				<caption><b>석박사 논문 디펜스</b>: 무르무르, 안암 (2020.06.12)</caption>
+				<caption><b>Master's and Doctoral Thesis Defense</b>: Murmur, Anam (2020.06.12)</caption>
 				<tbody><tr>
 					<td class="three"><a href="/photos/pictures/2020-defence/1.jpg"><img class="photo" src="/photos/thumbnails/2020-defence/1.jpg" alt="2020-defence"></a></td>
 					<td class="three"><a href="/photos/pictures/2020-defence/2.jpg"><img class="photo" src="/photos/thumbnails/2020-defence/2.jpg" alt="2020-defence"></a></td>
@@ -187,7 +187,7 @@ title: Photos
 			</tbody></table>
 
 			<table class="each">
-				<caption><b>Good news</b>: (2019년 겨울 ~ 2020년 봄)</caption>
+				<caption><b>Good news</b>: (Winter 2019 ~ Spring 2020)</caption>
 				<tbody><tr>
 					<td class="three"><a href="/photos/pictures/2020-goodnews/samsung.jpg"><img class="photo" src="/photos/thumbnails/2020-goodnews/samsung.jpg" alt="2020-goodnews"></a></td>
 					<td class="three"><a href="/photos/pictures/2020-goodnews/starlab.jpg"><img class="photo" src="/photos/thumbnails/2020-goodnews/starlab.jpg" alt="2020-goodnews"></a></td>
@@ -196,7 +196,7 @@ title: Photos
 			</tbody></table>
 			
 			<table class="each">
-				<caption><b>송년회 2019</b>: 어거스트 힐, 역삼 (2019.12.19)</caption>
+				<caption><b>Year-end Party 2019</b>: August Hill, Yeoksam (2019.12.19)</caption>
 				<tbody><tr>
 					<td class="three"><a href="/photos/pictures/2019-year-end-party/1.jpg"><img class="photo" src="/photos/thumbnails/2019-year-end-party/1.jpg" alt="2019-year-end-party"></a></td>
 					<td class="three"><a href="/photos/pictures/2019-year-end-party/2.jpg"><img class="photo" src="/photos/thumbnails/2019-year-end-party/2.jpg" alt="2019-year-end-party"></a></td>
@@ -205,7 +205,7 @@ title: Photos
 			</tbody></table>
 			
 			<table class="each">
-				<caption><b>석사 논문 디펜스</b>: 무르무르, 안암 (2019.12.05)</caption>
+				<caption><b>Master's Thesis Defense</b>: Murmur, Anam (2019.12.05)</caption>
 				<tbody><tr>
 					<td class="three"><a href="/photos/pictures/2019-defence/1.jpg"><img class="photo" src="/photos/thumbnails/2019-defence/1.jpg" alt="2019-defence"></a></td>
 					<td class="three"><a href="/photos/pictures/2019-defence/2.jpg"><img class="photo" src="/photos/thumbnails/2019-defence/2.jpg" alt="2019-defence"></a></td>
@@ -232,7 +232,7 @@ title: Photos
 			</tbody></table>
 
 			<table class="each">
-				<caption><b>PG 2019</b>: 하나스퀘어, 고려대학교 (2019.10.14 ~ 2019.10.17)</caption>
+				<caption><b>PG 2019</b>: Hana Square, Korea University (2019.10.14 ~ 2019.10.17)</caption>
 				<tbody><tr>
 					<td class="three"><a href="/photos/pictures/2019-PG/1.jpg"><img class="photo" src="/photos/thumbnails/2019-PG/1.jpg" alt="2019-PG"></a></td>
 					<td class="three"><a href="/photos/pictures/2019-PG/2.jpg"><img class="photo" src="/photos/thumbnails/2019-PG/2.jpg" alt="2019-PG"></a></td>
@@ -241,7 +241,7 @@ title: Photos
 			</tbody></table>
 
 			<table class="each">
-				<caption><b>KCGS 2019</b>: 델피노 리조트, 속초 (2019.07.02 ~ 2019.07.05)</caption>
+				<caption><b>KCGS 2019</b>: Del Pino Resort, Sokcho (2019.07.02 ~ 2019.07.05)</caption>
 				<tbody><tr>
 					<td class="three"><a href="/photos/pictures/2019-KCGS/1.jpg"><img class="photo" src="/photos/thumbnails/2019-KCGS/1.jpg" alt="2019-KCGS"></a></td>
 					<td class="three"><a href="/photos/pictures/2019-KCGS/2.jpg"><img class="photo" src="/photos/thumbnails/2019-KCGS/2.jpg" alt="2019-KCGS"></a></td>
@@ -250,7 +250,7 @@ title: Photos
 			</tbody></table>
 
 			<table class="each">
-				<caption><b>논문 제출 뒤풀이</b>: 루뽀, 광화문 (2019.04.12)</caption>
+				<caption><b>Celebration after paper submission</b>: Lupo, Gwanghwamun (2019.04.12)</caption>
 				<tbody><tr>
 					<td class="three"><a href="/photos/pictures/2019-spring-dining/1.jpg"><img class="photo" src="/photos/thumbnails/2019-spring-dining/1.jpg" alt="2019-spring-dining"></a></td>
 					<td class="three"><a href="/photos/pictures/2019-spring-dining/2.jpg"><img class="photo" src="/photos/thumbnails/2019-spring-dining/2.jpg" alt="2019-spring-dining"></a></td>
@@ -268,7 +268,7 @@ title: Photos
 			</tbody></table>
 
 			<table class="each">
-				<caption><b>KSC 2018</b>: 휘닉스파크, 강원도 (2018.12.19 ~ 2018.12.21)</caption>
+				<caption><b>KSC 2018</b>: Phoenix Park, Gangwon-do (2018.12.19 ~ 2018.12.21)</caption>
 				<tbody><tr>
 					<td class="three"><a href="/photos/pictures/2018-ksc/1.jpg"><img class="photo" src="/photos/thumbnails/2018-ksc/1.jpg" alt="2018-ksc"></a></td>
 					<td class="three"><a href="/photos/pictures/2018-ksc/2.jpg"><img class="photo" src="/photos/thumbnails/2018-ksc/2.jpg" alt="2018-ksc"></a></td>
@@ -277,7 +277,7 @@ title: Photos
 			</tbody></table>
 
 			<table class="each">
-				<caption><b>송년회 2018</b>: 보나베띠, 교대 (2018.12.13)</caption>
+				<caption><b>Year-end Party 2018</b>: BonaBeti, Gyodae (2018.12.13)</caption>
 				<tbody><tr>
 					<td class="three"><a href="/photos/pictures/2018-year-end-party/1.jpg"><img class="photo" src="/photos/thumbnails/2018-year-end-party/1.jpg" alt="2018-year-end-party"></a></td>
 					<td class="three"><a href="/photos/pictures/2018-year-end-party/2.jpg"><img class="photo" src="/photos/thumbnails/2018-year-end-party/2.jpg" alt="2018-year-end-party"></a></td>
@@ -304,7 +304,7 @@ title: Photos
 			</tbody></table>
 
 			<table class="each">
-				<caption><b>KCGS 2018</b>: 디오션 리조트, 전라남도 (2018.07.10 ~ 2018.07.13)</caption>
+				<caption><b>KCGS 2018</b>: The Ocean Resort, South Jeolla Province (2018.07.10 ~ 2018.07.13)</caption>
 				<tbody><tr>
 					<td class="three"><a href="/photos/pictures/2018-kcgs/1.jpg"><img class="photo" src="/photos/thumbnails/2018-kcgs/1.jpg" alt="2018-kcgs"></a></td>
 					<td class="three"><a href="/photos/pictures/2018-kcgs/2.jpg"><img class="photo" src="/photos/thumbnails/2018-kcgs/2.jpg" alt="2018-kcgs"></a></td>
@@ -322,7 +322,7 @@ title: Photos
 			</tbody></table>
 
 			<table class="each">
-				<caption><b>HCI 2018</b>: 하이원 리조트, 강원도 (2018.01.31 ~ 2018.02.02)</caption>
+				<caption><b>HCI 2018</b>: High1 Resort, Gangwon-do (2018.01.31 ~ 2018.02.02)</caption>
 				<tbody><tr>
 					<td class="three"><a href="/photos/pictures/2018-hci/1.jpg"><img class="photo" src="/photos/thumbnails/2018-hci/1.jpg" alt="2018-hci"></a></td>
 					<td class="three"><a href="/photos/pictures/2018-hci/2.jpg"><img class="photo" src="/photos/thumbnails/2018-hci/2.jpg" alt="2018-hci"></a></td>
@@ -331,7 +331,7 @@ title: Photos
 			</tbody></table>
 
 			<table class="each">
-				<caption><b>송년회 2017</b>: 라망드쉐프, 역삼 (2017.12.21)</caption>
+				<caption><b>Year-end Party 2017</b>: La Main de Chef, Yeoksam (2017.12.21)</caption>
 				<tbody><tr>
 					<td class="three"><a href="/photos/pictures/2017-year-end-party/1.jpg"><img class="photo" src="/photos/thumbnails/2017-year-end-party/1.jpg" alt="2017-year-end-party"></a></td>
 					<td class="three"><a href="/photos/pictures/2017-year-end-party/2.jpg"><img class="photo" src="/photos/thumbnails/2017-year-end-party/2.jpg" alt="2017-year-end-party"></a></td>
@@ -349,7 +349,7 @@ title: Photos
 			</tbody></table>
 
 			<table class="each">
-				<caption><b>KCGS 2017</b>: 샤인빌 리조트, 제주도 (2017.07.11 ~ 2017.07.14)</caption>
+				<caption><b>KCGS 2017</b>: Shineville Resort, Jeju Island (2017.07.11 ~ 2017.07.14)</caption>
 				<tbody><tr>
 					<td class="three"><a href="/photos/pictures/2017-kcgs/1.jpg"><img class="photo" src="/photos/thumbnails/2017-kcgs/1.jpg" alt="2017-kcgs"></a></td>
 					<td class="three"><a href="/photos/pictures/2017-kcgs/2.jpg"><img class="photo" src="/photos/thumbnails/2017-kcgs/2.jpg" alt="2017-kcgs"></a></td>
@@ -367,7 +367,7 @@ title: Photos
 			</tbody></table>
 
 			<table class="each">
-				<caption><b>스승의 날 2017</b>: 세븐스텝, 양재 (2017.06.02)</caption>
+				<caption><b>Teachers' Day 2017</b>: Seven Step, Yangjae (2017.06.02)</caption>
 				<tbody><tr>
 					<td class="three"><a href="/photos/pictures/2017-tday/1.jpg"><img class="photo" src="/photos/thumbnails/2017-tday/1.jpg" alt="2017-tday"></a></td>
 					<td class="three"><a href="/photos/pictures/2017-tday/2.jpg"><img class="photo" src="/photos/thumbnails/2017-tday/2.jpg" alt="2017-tday"></a></td>
@@ -394,7 +394,7 @@ title: Photos
 			</tbody></table>
 
 			<table class="each">
-				<caption><b>HCI 2017</b>: 하이원 리조트, 강원도 (2017.02.08 ~ 2017.02.10)</caption>
+				<caption><b>HCI 2017</b>: High1 Resort, Gangwon-do (2017.02.08 ~ 2017.02.10)</caption>
 				<tbody><tr>
 					<td class="three"><a href="/photos/pictures/2017-hci/1.jpg"><img class="photo" src="/photos/thumbnails/2017-hci/1.jpg" alt="2017-hci"></a></td>
 					<td class="three"><a href="/photos/pictures/2017-hci/2.jpg"><img class="photo" src="/photos/thumbnails/2017-hci/2.jpg" alt="2017-hci"></a></td>
@@ -403,7 +403,7 @@ title: Photos
 			</tbody></table>
 
 			<table class="each">
-				<caption><b>송년회 2016</b>: 쉐플로, 도곡 (2016.12.26)</caption>
+				<caption><b>Year-end Party 2016</b>: Chez Flo, Dogok (2016.12.26)</caption>
 				<tbody><tr>
 					<td class="three"><a href="/photos/pictures/2016-year-end-party/1.jpg"><img class="photo" src="/photos/thumbnails/2016-year-end-party/1.jpg" alt="2016-year-end-party"></a></td>
 					<td class="three"><a href="/photos/pictures/2016-year-end-party/2.jpg"><img class="photo" src="/photos/thumbnails/2016-year-end-party/2.jpg" alt="2016-year-end-party"></a></td>
@@ -430,7 +430,7 @@ title: Photos
 			</tbody></table>
 
 			<table class="each">
-				<caption><b>KCGS 2016</b>: 델피노 리조트, 강원도 (2016.07.12 ~ 2016.07.15)</caption>
+				<caption><b>KCGS 2016</b>: Del Pino Resort, Gangwon-do (2016.07.12 ~ 2016.07.15)</caption>
 				<tbody><tr>
 					<td class="three"><a href="/photos/pictures/2016-kcgs/1.jpg"><img class="photo" src="/photos/thumbnails/2016-kcgs/1.jpg" alt="2016-kcgs"></a></td>
 					<td class="three"><a href="/photos/pictures/2016-kcgs/2.gif"><img class="photo" src="/photos/thumbnails/2016-kcgs/2.jpg" alt="2016-kcgs"></a></td>
@@ -439,7 +439,7 @@ title: Photos
 			</tbody></table>
 
 			<table class="each">
-				<caption><b>스승의 날 2016</b>: 달빛술담, 신사 (2016.07.07)</caption>
+				<caption><b>Teachers' Day 2016</b>: Dalbit Suldam, Sinsa (2016.07.07)</caption>
 				<tbody><tr>
 					<td class="three"><a href="/photos/pictures/2016-tday/1.jpg"><img class="photo" src="/photos/thumbnails/2016-tday/1.jpg" alt="2016-tday"></a></td>
 					<td class="three"><a href="/photos/pictures/2016-tday/2.jpg"><img class="photo" src="/photos/thumbnails/2016-tday/2.jpg" alt="2016-tday"></a></td>
@@ -449,12 +449,12 @@ title: Photos
 			<br>
 
 			<div id="previous_photo_on" onclick="previous_photo_on();" style="font-size: 20px; text-align: right; cursor: pointer; display: none;">
-				이전사진 보기
+				View previous photos
 			</div>
 
-			<!-- 이후부터 안보임 -->
+			<!-- Hidden below -->
 			<div id="previous_photo"><table class="each">
-            <caption><b>송년회 2015</b>: 서울 가스트로591 (2015.12.03)</caption>
+            <caption><b>Year-end Party 2015</b>: Seoul Gastro 591 (2015.12.03)</caption>
             <tbody><tr>
         	    <td class="three"><a href="/photos/pictures/2015-year-end-party/1.jpg"><img class="photo" src="/photos/thumbnails/2015-year-end-party/1.jpg" alt="2015-year-end-party"></a></td>
         	    <td class="three"><a href="/photos/pictures/2015-year-end-party/2.jpg"><img class="photo" src="/photos/thumbnails/2015-year-end-party/2.jpg" alt="2015-year-end-party"></a></td>
@@ -463,7 +463,7 @@ title: Photos
           </tbody></table>
 
           <table class="each">
-            <caption><b>KCGS 2015</b>: 설악 대명 델피노리조트, 강원도 (2015.07.14 ~ 2015.07.16)</caption>
+            <caption><b>KCGS 2015</b>: Seorak Daemyung Del Pino Resort, Gangwon-do (2015.07.14 ~ 2015.07.16)</caption>
             <tbody><tr>
         	    <td class="three"><a href="/photos/pictures/2015-kcgs/1.jpg"><img class="photo" src="/photos/thumbnails/2015-kcgs/1.jpg" alt="2015-kcgs"></a></td>
         	    <td class="three"><a href="/photos/pictures/2015-kcgs/2.jpg"><img class="photo" src="/photos/thumbnails/2015-kcgs/2.jpg" alt="2015-kcgs"></a></td>
@@ -481,7 +481,7 @@ title: Photos
           </tbody></table>
 
           <table class="each">
-            <caption><b>KIISE 2014</b>: 보광휘닉스파크, 강원도 (2014.12.18 ~ 2014.12.20)</caption>
+            <caption><b>KIISE 2014</b>: Bokwang Phoenix Park, Gangwon-do (2014.12.18 ~ 2014.12.20)</caption>
             <tbody><tr>
         	    <td class="three"><a href="/photos/pictures/2014-kiise/1.jpg"><img class="photo" src="/photos/thumbnails/2014-kiise/1.jpg" alt="2014-kiise"></a></td>
         	    <td class="three"><a href="/photos/pictures/2014-kiise/2.jpg"><img class="photo" src="/photos/thumbnails/2014-kiise/2.jpg" alt="2014-kiise"></a></td>
@@ -499,7 +499,7 @@ title: Photos
           </tbody></table>
 
           <table class="each">
-            <caption><b>KCGS 2014</b>: 대명리조트 변산반도, 전라북도 (2014.07.16 ~ 2014.07.18)</caption>
+            <caption><b>KCGS 2014</b>: Daemyung Resort Byeonsan Peninsula, North Jeolla Province (2014.07.16 ~ 2014.07.18)</caption>
             <tbody><tr>
               <td class="three"><a href="/photos/pictures/2014-kcgs/1.jpg"><img class="photo" src="/photos/thumbnails/2014-kcgs/1.jpg" alt="2014-kcgs"></a></td>
         	    <td class="three"><a href="/photos/pictures/2014-kcgs/2.jpg"><img class="photo" src="/photos/thumbnails/2014-kcgs/2.jpg" alt="2014-kcgs"></a></td>
@@ -508,7 +508,7 @@ title: Photos
           </tbody></table>
 
           <table class="each">
-            <caption><b>스승의 날 2014</b>: 서울 어느 주점에서 ... (2014.06.27)</caption>
+            <caption><b>Teachers' Day 2014</b>: At a bar in Seoul ... (2014.06.27)</caption>
             <tbody><tr>
         	    <td class="three"><a href="/photos/pictures/2014-tday/IMG_1411.jpg"><img class="photo" src="/photos/thumbnails/2014-tday/IMG_1411.jpg" alt="2014-tday"></a></td>
         	    <td class="three"><a href="/photos/pictures/2014-tday/IMG_1415.jpg"><img class="photo" src="/photos/thumbnails/2014-tday/IMG_1415.jpg" alt="2014-tday"></a></td>
@@ -535,7 +535,7 @@ title: Photos
           </tbody></table>
 
           <table class="each">
-  	         <caption><b>HCI 2014</b>: 하이원 리조트, 강원도 (2014.02.12 ~ 2014.02.14)</caption>
+            <caption><b>HCI 2014</b>: High1 Resort, Gangwon-do (2014.02.12 ~ 2014.02.14)</caption>
             <tbody><tr>
               <td class="three"><a href="/photos/pictures/2014-hci/si.jpg"><img class="photo" src="/photos/thumbnails/2014-hci/si.jpg" alt="2014-kcc"></a></td>
         	    <td class="three"><a href="/photos/pictures/2014-hci/wbni.jpg"><img class="photo" src="/photos/thumbnails/2014-hci/wbni.jpg" alt="2014-kcc"></a></td>
@@ -544,7 +544,7 @@ title: Photos
           </tbody></table>
 
           <table class="each">
-            <caption><b>KCC 2013</b>: 디오션 리조트 여수, 전라남도 (2013.06.26 ~ 2013.06.28)</caption>
+            <caption><b>KCC 2013</b>: The Ocean Resort Yeosu, South Jeolla Province (2013.06.26 ~ 2013.06.28)</caption>
             <tbody><tr>
               <td class="three"><a href="/photos/pictures/2013-kcc/prize.jpg"><img class="photo" src="/photos/thumbnails/2013-kcc/prize.jpg" alt="2013-kcc"></a></td>
         	    <td class="three"><a href="/photos/pictures/2013-kcc/whole.jpg"><img class="photo" src="/photos/thumbnails/2013-kcc/whole.jpg" alt="2013-kcc"></a></td>
@@ -571,7 +571,7 @@ title: Photos
           </tbody></table>
 
           <table class="each">
-            <caption><b>겨울 MT 2013</b>: 용평리조트, 강원도 (2013.02.18 ~ 2013.02.19)</caption>
+            <caption><b>Winter Retreat 2013</b>: Yongpyong Resort, Gangwon-do (2013.02.18 ~ 2013.02.19)</caption>
             <tbody><tr>
               <td class="three"><a href="/photos/pictures/2013-W-MT/1362033381196.jpg"><img class="photo" src="/photos/thumbnails/2013-W-MT/1362033381196.jpg" alt="W-MT-2013"></a></td>
         	    <td class="three"><a href="/photos/pictures/2013-W-MT/1362033365680.jpg"><img class="photo" src="/photos/thumbnails/2013-W-MT/1362033365680.jpg" alt="W-MT-2013"></a></td>

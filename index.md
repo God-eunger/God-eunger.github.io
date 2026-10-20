@@ -2,15 +2,15 @@
 layout: home
 ---
 
-한국외국어대학교 실시간 그래픽스 연구실의 연구 분야는 아래와 같습니다.
-* 물리 기반 애니메이션
-* 실시간 렌더링 및 시각화
+The Real-time Graphics Lab at Hankuk University of Foreign Studies conducts research in the following areas:
+* Physics-based animation
+* Real-time rendering and visualization
 
-우리 연구실에서는 학부연구생, 석사/박사 대학원생, 단기 인턴을 모집하고 있습니다.
+We welcome undergraduate researchers, master's and Ph.D. students, and short-term interns.
 
-또한, 다양한 협업 제안을 환영합니다.
+We also welcome research collaboration proposals.
 
-관심 있는 분은 seungwook.kim@hufs.ac.kr로 연락 주시기 바랍니다.
+If you are interested, please contact seungwook.kim@hufs.ac.kr.
 
 <hr>
 
