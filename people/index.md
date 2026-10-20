@@ -26,9 +26,9 @@ Always check singular or plural according to the number of people
 ### Former Undergraduates
  
  * Kyungseo Jung (junggs1245<sub><i>at </i></sub>gmail<sub><i>dot </i></sub>com)
+ * Sanghyun Ji (shrnd3v<sub><i>at </i></sub>gmail<sub><i>dot </i></sub>com)
+ * Jun Seok Kim (202100999<sub><i>at </i></sub>hufs<sub><i>dot </i></sub>ac<sub><i>dot </i></sub>kr)
  * Byeongwoo Yang (quddn2785<sub><i>at </i></sub>gmail<sub><i>dot </i></sub>com)
  * Seungbeom Park (psb0831<sub><i>at </i></sub>naver<sub><i>dot </i></sub>com)
- * Jun Seok Kim (202100999<sub><i>at </i></sub>hufs<sub><i>dot </i></sub>ac<sub><i>dot </i></sub>kr)
- * Sanghyun Ji (shrnd3v<sub><i>at </i></sub>gmail<sub><i>dot </i></sub>com)
 
 
