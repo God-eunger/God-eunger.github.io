@@ -25,10 +25,10 @@ Always check singular or plural according to the number of people
 
 ### Former Undergraduates
  
- * Kim Jun Seok (202100999<sub><i>at </i></sub>hufs<sub><i>dot </i></sub>ac<sub><i>dot </i></sub>kr)
- * Ji Sanghyun (shrnd3v<sub><i>at </i></sub>gmail<sub><i>dot </i></sub>com)
- * Jung Kyungseo (junggs1245<sub><i>at </i></sub>gmail<sub><i>dot </i></sub>com) 
- * Yang Byeongwoo (quddn2785<sub><i>at </i></sub>gmail<sub><i>dot </i></sub>com) 
- * Park Seungbeom (psb0831<sub><i>at </i></sub>naver<sub><i>dot </i></sub>com)
+ * Kyungseo Jung (junggs1245<sub><i>at </i></sub>gmail<sub><i>dot </i></sub>com)
+ * Byeongwoo Yang (quddn2785<sub><i>at </i></sub>gmail<sub><i>dot </i></sub>com)
+ * Seungbeom Park (psb0831<sub><i>at </i></sub>naver<sub><i>dot </i></sub>com)
+ * Jun Seok Kim (202100999<sub><i>at </i></sub>hufs<sub><i>dot </i></sub>ac<sub><i>dot </i></sub>kr)
+ * Sanghyun Ji (shrnd3v<sub><i>at </i></sub>gmail<sub><i>dot </i></sub>com)
 
 
