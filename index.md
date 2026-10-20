@@ -10,7 +10,7 @@ We welcome undergraduate researchers, master's and Ph.D. students, and short-ter
 
 We also welcome research collaboration proposals.
 
-If you are interested, please contact seungwook.kim@hufs.ac.kr.
+If you are interested, please contact seungwook.kim<sub><i>at </i></sub>hufs<sub><i>dot </i></sub>ac<sub><i>dot </i></sub>kr.
 
 <hr>
 
