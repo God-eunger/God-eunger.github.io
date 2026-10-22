@@ -1,1 +1,11 @@
 <!-- Additional head bits without overriding original head -->
+{% if page.stylesheet %}
+<link rel="stylesheet" href="{{ page.stylesheet | relative_url }}" />
+<meta name="description" content="{{ page.description | escape }}" />
+<link rel="canonical" href="{{ page.canonical_url }}" />
+<meta property="og:type" content="profile" />
+<meta property="og:title" content="{{ page.title | escape }}" />
+<meta property="og:description" content="{{ page.description | escape }}" />
+<meta property="og:url" content="{{ page.canonical_url }}" />
+<meta property="og:image" content="{{ page.image }}" />
+{% endif %}
