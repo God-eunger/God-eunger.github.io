@@ -106,13 +106,11 @@ body:has(.swkim-profile) {
 }
 
 .swkim-profile .publication-venue,
-.swkim-profile .authors,
-.swkim-profile .publication-description {
+.swkim-profile .authors {
   margin-bottom: 0.5rem;
 }
 
-.swkim-profile .authors,
-.swkim-profile .publication-description {
+.swkim-profile .authors {
   font-size: 0.85rem;
 }
 
