@@ -141,11 +141,6 @@ body:has(.swkim-profile) {
   display: block;
 }
 
-.swkim-profile .profile-footer {
-  margin-top: 2rem;
-  font-size: 0.8rem;
-}
-
 .swkim-profile a:focus-visible,
 .swkim-profile summary:focus-visible {
   outline: 2px solid currentColor;
