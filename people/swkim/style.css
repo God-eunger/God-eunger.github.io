@@ -141,8 +141,7 @@ body:has(.swkim-profile) {
 }
 
 .swkim-profile .compact-publications,
-.swkim-profile .timeline,
-.swkim-profile .plain-list {
+.swkim-profile .timeline {
   padding: 0;
   list-style: none;
 }
@@ -157,8 +156,7 @@ body:has(.swkim-profile) {
   gap: 0 2rem;
 }
 
-.swkim-profile .timeline li,
-.swkim-profile .plain-list li {
+.swkim-profile .timeline li {
   margin-bottom: 1rem;
   font-size: 0.85rem;
 }
