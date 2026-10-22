@@ -2,18 +2,10 @@ body:has(.swkim-profile) {
   min-width: 0;
 }
 
-.swkim-profile .profile-nav,
 .swkim-profile .paper-links {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem 1rem;
-}
-
-.swkim-profile .profile-nav {
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #e5e5e5;
-  font-size: 0.85rem;
 }
 
 .swkim-profile .profile {
