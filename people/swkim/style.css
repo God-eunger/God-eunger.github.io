@@ -96,8 +96,7 @@ body:has(.swkim-profile) {
 
 .swkim-profile .publication-figure img {
   width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
+  height: auto;
 }
 
 .swkim-profile .publication h3,
