@@ -61,12 +61,6 @@ body:has(.swkim-profile) {
   width: 160px;
 }
 
-.swkim-profile .portrait figcaption {
-  margin-top: 0.5rem;
-  color: #767676;
-  font-size: 0.7rem;
-}
-
 .swkim-profile .profile-links,
 .swkim-profile .paper-links,
 .swkim-profile .text-link {
