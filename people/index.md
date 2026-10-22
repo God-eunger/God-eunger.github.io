@@ -13,7 +13,7 @@ Always check singular or plural according to the number of people
 
 ### Professor
 
-#### Seung-wook Kim (seungwook.kim<sub><i>at </i></sub>hufs<sub><i>dot </i></sub>ac<sub><i>dot </i></sub>kr) 
+#### [Seung-wook Kim](./swkim/) (seungwook.kim<sub><i>at </i></sub>hufs<sub><i>dot </i></sub>ac<sub><i>dot </i></sub>kr)
  * Assistant Professor, Division of Computer Engineering at HUFS
  * Postdoctoral Researcher, Korea University, Mar. 2021 ~ Feb. 2024
  * Ph.D. Eng. in Computer Science and Engineering, Korea University, Feb. 2021
