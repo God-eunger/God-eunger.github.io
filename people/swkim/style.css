@@ -3,7 +3,6 @@ body:has(.swkim-profile) {
 }
 
 .swkim-profile .profile-nav,
-.swkim-profile .profile-links,
 .swkim-profile .paper-links {
   display: flex;
   flex-wrap: wrap;
@@ -61,7 +60,6 @@ body:has(.swkim-profile) {
   width: 160px;
 }
 
-.swkim-profile .profile-links,
 .swkim-profile .paper-links,
 .swkim-profile .text-link {
   font-size: 0.85rem;
