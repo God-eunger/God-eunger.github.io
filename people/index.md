@@ -21,7 +21,7 @@ Always check singular or plural according to the number of people
 
 ### Undergraduate
 
- * Jeonghyeok Seo (seojh010<sub><i>at </i></sub>naver<sub><i>dot </i></sub>com)
+ * Jughyuk Seo (seojh010<sub><i>at </i></sub>naver<sub><i>dot </i></sub>com)
 
 ### Former Undergraduates
  
